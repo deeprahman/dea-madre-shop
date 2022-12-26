@@ -1,0 +1,54 @@
+.banner {
+    .img-size {
+        height: 20vh;
+        width: 100%;
+
+            width: 100%;
+            background-repeat:no-repeat;
+            background-size:cover;
+    }
+     @include media-breakpoint-up(sm) {
+        .img-size {
+            height: 30vh;
+            width: 100%;
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .img-size {
+            height: 60vh;
+            width: 100%;
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .img-size {
+            height: 60vh;
+            width: 100%;
+   
+  
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+    }
+
+    #carousel-img-1 {
+        background-image: $beer-glass, linear-gradient(red, yellow);
+    }
+
+    #carousel-img-2 {
+        background-image: $coffee-beans,linear-gradient(red, yellow);
+    }
+
+    #carousel-img-3 {
+        background-image: $distillari,linear-gradient(red, yellow);
+    }
+
+    #carousel-img-4 {
+        background-image: $wine,linear-gradient(red, yellow);
+    }
+}

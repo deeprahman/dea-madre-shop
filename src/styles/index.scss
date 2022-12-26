@@ -1,0 +1,15 @@
+
+@import 'fonts';
+@import 'variables';
+@import 'scaffolding';
+@import "bootstrap/scss/bootstrap.scss";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'common';
+@import 'bootstrap-nav';
+// SECTIONS
+@import "sections/header";
+@import "sections/banner";
+@import "sections/our-shop";
+@import "sections/our-clients";
+@import "sections/contact";
+@import "sections/footer";

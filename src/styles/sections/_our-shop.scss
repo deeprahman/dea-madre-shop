@@ -1,0 +1,107 @@
+#our-shop {
+
+    .description {
+
+
+        .description-text {
+
+            width: 100%;
+            margin-top: 0;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+
+        @include media-breakpoint-up(md) {
+            .description-text {
+                width: 60%;
+                margin-top: -5.55rem;
+                z-index: 2;
+            }
+        }
+
+
+    }
+
+    .product-category {
+        background-image: url("~/src/images/background-fixed/photo-1515779122185-2390ccdf060b-7aae0861-1920w.jpg"), linear-gradient($primary, $secondary);
+        background-size: cover;
+        background-attachment: fixed;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        .product-coffee {
+            background-image: $coffee-beans, linear-gradient(red, yellow);
+        }
+
+        .product-coffee:hover {
+            background-image: linear-gradient(rgba(223, 213, 213, 0.151), rgba(223, 213, 213, 0.185)), $coffee-beans;
+        }
+
+        .product-wines {
+            background-image: $wine, linear-gradient(red, yellow);
+        }
+
+        .product-wines:hover {
+            background-image: linear-gradient(rgba(223, 213, 213, 0.151), rgba(223, 213, 213, 0.185)), $wine;
+        }
+
+       
+
+        .product-liquers {
+            background-image: $distillari, linear-gradient(red, yellow);
+        }
+
+        .product-liquers:hover {
+            background-image: linear-gradient(rgba(223, 213, 213, 0.151), rgba(223, 213, 213, 0.185)), $distillari
+        }
+
+        .product-beers {
+            background-image: $beer-glass, linear-gradient(red, yellow);
+        }
+
+        .product-beers:hover {
+            background-image: linear-gradient(rgba(223, 213, 213, 0.151), rgba(223, 213, 213, 0.185)), $beer-glass;
+        }
+
+
+
+        .product {
+            background-repeat: no-repeat;
+            
+            width:100%;
+            height:100vh;
+            background-size: cover;
+        }
+
+
+
+
+
+        @include media-breakpoint-up(md) {
+            .product {
+                height: 100vh;
+                min-width:24vw;
+                background-size:cover;
+
+            }
+
+        }
+
+
+    }
+
+    @include media-breakpoint-up(md) {
+        .product-category {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+
+    }
+
+    // images
+
+
+
+
+
+}
