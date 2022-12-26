@@ -7,13 +7,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
   <title>
-   Dea Madre 
+    webpack Boilerplate
   </title>
-  <?php wp_head()?>
-</head>
+<script defer src="../dist/js/main.min.js"></script><link href="../dist/css/main.min.css" rel="stylesheet"></head>
 
 <body>
-  <header>
+ 
+  <header class="">
     <div class="top d-none  d-lg-flex flex-row justify-content-between align-items-center bg-primary text-light">
     <div role="logo" class="ms-5 me-0 my-3">
 
@@ -29,7 +29,8 @@
         <div class="ms-3"><i class="bi bi-facebook fs-1"></i></div>
     </dov>
 </div>
-      <nav class="navbar  navbar-expand-lg navbar-dark bg-primary text-light sticky-top">
+  </header>
+      <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-secondary text-light sticky-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +104,7 @@
         </div>
     </div>
 </nav>
-  </header>
+
   <!-- Banner section -->
   <div class="banner">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -152,16 +153,16 @@
             <div class="col">
                 <div class="d-flex flex-column flex-md-row gap-1 justify-content-between px-1">
 
-                    <div id="product-coffee" class="product">
+                    <div class="product product-coffee">
 
                     </div>
-                    <div id="product-wines" class="product">
+                    <div class="product product-wines">
 
                     </div>
-                    <div id="product-liquers" class="product">
+                    <div id="" class="product product-liquers">
 
                     </div>
-                    <div id="product-beers" class="product">
+                    <div id="" class="product product-beers">
 
                     </div>
                 </div>
@@ -177,8 +178,8 @@
         <div class="row">
             <div class="col">
                 <div class="py-1 py-md-3 py-lg-5 d-flex flex-row flex-wrap justify-content-center gap-3 w-75 mx-auto">
-                    <div class="client-block">
-                        <img src="../dist/img/ca-640w.webp"  alt="">
+                    <div id="" class="client-block">
+                        <img id="clinet-img-ca" src="../dist/img/ca-640w.webp"  alt="">
                     </div>
                     <div class="client-block">
                         <img src="../dist/img/daroma-640w.webp" alt="">
@@ -267,7 +268,6 @@
         </div>
     </div>
 </footer>
-<?php wp_footer();?>
 </body>
 
 </html>
