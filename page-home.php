@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Home
+*/
+?>
+
 <!-- The Header Section -->
 
 <?php get_header() ?>

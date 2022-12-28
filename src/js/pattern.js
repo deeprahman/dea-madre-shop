@@ -5,7 +5,6 @@
 import pattern from '../images/patterns/BG_DEA_MADRE-1920w.png';
 
 const pat = Object.create(null);
-
 pat.els = document.querySelectorAll('.pattern');
 
 pat.setBackgroundImageStyle = function(els){

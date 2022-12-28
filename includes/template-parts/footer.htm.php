@@ -1,4 +1,3 @@
-
 <footer class="bg-danger dg-danger">
     <div class="container-fluid">
 

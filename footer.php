@@ -1,6 +1,8 @@
-<footer id="footer">
-  <h5>© <?php echo date("Y"); ?> My Blog</h5>
-</footer>
+<?php if (file_exists(TMPLT_DIR . DIRECTORY_SEPARATOR . 'footer.htm.php' )) { include_once(TMPLT_DIR . DIRECTORY_SEPARATOR . 'footer.htm.php' ); } ?>
 
-<!-- wordpress footer includes -->
-<?php wp_footer(); ?>
+  <!-- wordpress footer includes -->
+  <?php wp_footer(); ?>
+
+  </body>
+
+  </html>

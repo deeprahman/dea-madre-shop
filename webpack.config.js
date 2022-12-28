@@ -73,7 +73,7 @@ module.exports = [
         title: 'webpack Boilerplate',
         // favicon: paths.src + '/images/favicon.png',
         template: path.join(__dirname, 'src', 'template.html'), // template file
-        filename: path.join(__dirname, 'templates' ,'main.html'), // output file
+        filename: './../index.html', // output file
         // inject: body
       }),
     ],

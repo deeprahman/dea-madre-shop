@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-primary text-light align-items-center justify-content-between mb-0 pb-0">
+<nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-primary text-light align-items-center justify-content-between  pb-0">
     <!-- <div class="container-fluid"> -->
         <button class="navbar-toggler ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
