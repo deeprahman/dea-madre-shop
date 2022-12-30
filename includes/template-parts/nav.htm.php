@@ -35,10 +35,11 @@
                 </li>
                 <!-- Shop -->
                 <li class="nav-item dropdown">
-                    <a href="" class="nav-link dropdown-toggle" data-bs-auto-close="outside" href="#"
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside"
                         data-bs-toggle="dropdown">Shop</a>
                     <!-- Submenu -->
                     <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="<?php echo esc_url( get_page_link( 77 ) ) ?>">Our Shop</a></li>
                         <!-- WIne -->
                         <li class="dropend">
                             <a class="dropdown-item dropdown-toggle" href="#"> Wine</a>

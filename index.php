@@ -2,7 +2,9 @@
 
 <?php get_header() ?>
 
-
+<?php 
+echo "<h1>Index</h1>"
+?>
 
 <!-- The Banner section -->
 <?php get_template_part('includes/template-parts/banner.htm'); ?>
