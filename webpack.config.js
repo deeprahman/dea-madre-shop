@@ -92,7 +92,7 @@ module.exports = [
         // css minification
         new CssMinimizerPlugin(),
       ],
-      moduleIds: 'hashed',
+      moduleIds: 'deterministic',
     },
   }
 ];

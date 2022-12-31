@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title>
+        webpack Boilerplate
+    </title>
+<script defer src="dist/js/main.min.js"></script><link href="dist/css/main.min.css" rel="stylesheet"></head>
+
+<body>
+
+    <header class="">
+        <div class="top d-none  d-lg-flex flex-row justify-content-between align-items-center bg-primary text-light">
+    <div role="logo" class="ms-5 me-0 my-3">
+
+        <div class="logo" role="logo"></div>
+    </div>
+    <div id="top-contact" class="d-flex gap-3 flex-column justify-content-center align-items-center">
+        <span class="fs-3">Forniture Coffe & Beverage</span>
+        <a class="btn btn-outline-light rounded-pill contact-btn" href="#">Contact</a>
+    </div>
+    <dov id="user-info" class="ms-0 me-5 my-3 d-flex flex-row align-items-center">
+        <div><i class="bi bi-cart text-white fs-4"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-4">0</span></div>
+        <div class="ms-3"><i class="bi bi-person-fill text-white fs-1"></i></div>
+        <div class="ms-3"><i class="bi bi-facebook fs-1"></i></div>
+    </dov>
+</div>
+    </header>
+    <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-primary text-light align-items-center justify-content-between mb-0 pb-0">
+    <!-- <div class="container-fluid"> -->
+        <button class="navbar-toggler ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="ms-5 ms-lg-0 navbar-brand navbar-toggler" href="#" data-bs-toggle="collapse">
+            <span class="logo d-block"></span>
+        </a>
+        <div class="navbar-brand navbar-toggler" data-bs-toggle="collapse">
+            <i class="bi bi-cart text-white fs-5"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-5">0</span>
+        </div>
+
+
+        <div class=" collapse navbar-collapse bg-secondary fw-normal fs-5 ps-2" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <!-- Search bar on SM devices -->
+                <li class=" nav-item mt-3 d-inline d-lg-none mb-4">
+                     <div class="search pe-2">
+                          <i class="bi bi-search text-dark fw-bold fs-4"></i>
+                          <input type="text" class="form-control rounded-pill fw-normal fs-4" placeholder="Search">
+                         
+                        </div>
+                </li>
+                <!-- Home -->
+                <li class=" nav-item"><a href="#" class="nav-link">Home</a></li>
+                <!-- Products  -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                    </ul>
+                </li>
+                <!-- Shop -->
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-bs-auto-close="outside" href="#"
+                        data-bs-toggle="dropdown">Shop</a>
+                    <!-- Submenu -->
+                    <ul class="dropdown-menu">
+                        <!-- WIne -->
+                        <li class="dropend">
+                            <a class="dropdown-item dropdown-toggle" href="#"> Wine</a>
+                            <!-- Sub-Submenu -->
+                            <ul class="submenu dropdown-menu">
+                                <li><a class="dropdown-item" href="#"> sub-submenu </a></li>
+                                <li><a class="dropdown-item" href="#"> Sub-submenu </a></li>
+                            </ul>
+                        </li>
+                        <!-- Beverage -->
+                        <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                        <!-- Cafeteria -->
+                        <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                    </ul>
+                </li>
+                <!-- Contacts -->
+                <li class=" nav-item"><a href="#" class="nav-link ">Contacts</a></li>
+                <!-- Others on small devies -->
+                <li class="nav-item mt-3 d-inline d-lg-none"><a href="#" class="nav-link not-highlight">
+                    <i class="bi bi-cart-fill"></i>&nbsp;
+                    <span>0</span>
+                </a></li>
+                <li class="nav-item d-inline d-lg-none"><a href="#" class="nav-link not-highlight link-light text-decoration-underline">
+                    My Account
+                </a></li>
+
+            </ul>
+            
+
+
+        </div>
+    <!-- </div> -->
+</nav>
+
+        <!-- Banner section -->
+        <div class="banner">
+  <div class="banner-shade"></div>
+  <div class="shop-cta d-flex flex-column align-items-center">
+    <p class="fs-1 fw-1 text-light">Online Wine Sales</p>
+    <div><a class="btn btn-outline-light rounded-pill shop-btn" href="#">Wine Shop</a></div>
+  </div>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <div id="carousel-img-1" class="d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+
+        <div id="carousel-img-2" class="d-block d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+        <div id="carousel-img-3" class="d-block d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+        <div id="carousel-img-4" class="d-block d-block img-size"></div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="shop-decor__link">
+    <svg width="241px" height="39px" viewBox="0 0 241 39" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" id="1051936929" class="svg u_1051936929" data-icon-custom="true"
+      data-icon-name="vector_path_white.svg" data-hover-effect="zoomout"
+      alt="icona freccia"><!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+      <title>Combined Shape Copy</title>
+      <desc>Created with Sketch.</desc>
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path
+          d="M1.56319402e-13,39 C80.5,39 80.5,-2.89412038e-13 120.5,-1.0658141e-14 C157,-1.0658141e-14 167,39 241,39 C172,39 72,39 1.56319402e-13,39 Z M112.56,12.81 L110.13,15.24 L120.66,25.77 L131.19,15.24 L128.76,12.81 L120.66,20.91 L112.56,12.81 Z"
+          id="Combined-Shape-Copy" fill="#FFFFFF" fill-rule="nonzero"></path>
+      </g>
+    </svg>
+  </a>
+
+</div>
+
+            <!-- footer section -->
+            
+<footer class="bg-danger dg-danger">
+    <div class="container-fluid">
+
+        <div class="row row-cols-1 bg-secondary">
+            <div class="col-12 col-lg-8 offset-lg-2">
+
+
+                <div id="physical-contact" class="text-center pt-1 pt-md-3">
+                    <h5>DEA MADRE COFFEE & BEVERAGE</h5>
+                    <p>Viale Sardegna, 241 – 07030 Santa Maria Coghinas (SS)</p>
+                    <p class="h5">+39 079 0976660 | +39 349 8185292   | deamadre.gm@gmail.com</p>
+                    <p>P.I. 02731260903 | Informazioni Legali | Privacy Policy e Cookie Policy</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 text-light offset-lg-2 text-center">
+                <span class="">Designed by Italiaonline | Questa azienda è presente anche su</span>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
