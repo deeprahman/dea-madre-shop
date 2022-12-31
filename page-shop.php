@@ -8,7 +8,8 @@ Template Name: Shop
 <!-- The Header Section -->
 
 <?php get_header() ?>
-<?php echo "<h1>Shop</h1>";?>
+<!-- <h1>Good</h1> -->
+<?php woocommerce_breadcrumb();?>
 <main>
 	<?php
 	/**

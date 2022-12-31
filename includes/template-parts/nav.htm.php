@@ -23,7 +23,7 @@
                         </div>
                 </li>
                 <!-- Home -->
-                <li class=" nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class=" nav-item"><a href="<?php echo get_site_url(); ?>" class="nav-link">Home</a></li>
                 <!-- Products  -->
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a>

@@ -10,7 +10,6 @@ Template Name: Home
 
 
 
-
 <!-- The Banner section -->
 <?php get_template_part('includes/template-parts/banner.htm'); ?>
 

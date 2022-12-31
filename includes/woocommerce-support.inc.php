@@ -9,7 +9,7 @@ function mytheme_add_woocommerce_support()
         'single_image_width'    => 300,
 
         'product_grid'          => array(
-            'default_rows'    => 3,
+            'default_rows'    => 6,
             'min_rows'        => 2,
             'max_rows'        => 8,
             'default_columns' => 4,

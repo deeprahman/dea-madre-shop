@@ -30,7 +30,7 @@
     wc_set_loop_prop('total', $products_ids->total);
     wc_set_loop_prop('total_pages', $products_ids->max_num_pages);
     if ($products_ids) {
-        do_action('woocommerce_before_shop_loop');
+        // do_action('woocommerce_before_shop_loop');
         woocommerce_product_loop_start();
         foreach ($products_ids->products as $featured_product) {
             $post_object = get_post($featured_product);
@@ -40,7 +40,7 @@
         }
         wp_reset_postdata();
         woocommerce_product_loop_end();
-        do_action('woocommerce_after_shop_loop');
+        // do_action('woocommerce_after_shop_loop');
     } else {
         do_action('woocommerce_no_products_found');
     }

@@ -1,1 +1,4 @@
-<h1>Single-Product Page</h1>
+<?php
+
+?>
+<h1>Single Product</h1>

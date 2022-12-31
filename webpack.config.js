@@ -14,14 +14,14 @@ module.exports = [
   {
     entry: {
       'main': [
-        path.join(__dirname,'src','index.js'),
-        path.join(__dirname,'src','styles','index.scss'),
+        path.join(__dirname, 'src', 'index.js'),
+        path.join(__dirname, 'src', 'styles', 'index.scss'),
       ]
     },
     output: {
       // filename: './js/build/[name].min.[fullhash].js',
       path: path.join(__dirname, 'dist'),
-      filename:  'js/'+'[name].min.js',
+      filename: 'js/' + '[name].min.js',
     },
     module: {
       rules: [
@@ -45,7 +45,7 @@ module.exports = [
             filename: 'css/font/[name][ext]',
           }
         },
-   
+
         // loader for images and icons (only required if css references image files)
         {
           test: /\.(png|jpg|gif|webp)$/,
@@ -60,8 +60,8 @@ module.exports = [
       // clear out build directories on each build
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [
-            path.join(__dirname, 'dist', 'js'),
-            path.join(__dirname, 'dist', 'css'),
+          path.join(__dirname, 'dist', 'js'),
+          path.join(__dirname, 'dist', 'css'),
         ]
       }),
       // css extraction into dedicated file
@@ -76,6 +76,13 @@ module.exports = [
         filename: './../index.html', // output file
         // inject: body
       }),
+      new HtmlWebpackPlugin({
+        title: 'webpack Boilerplate',
+        // favicon: paths.src + '/images/favicon.png',
+        template: path.join(__dirname, 'src', 'template-shop.html'), // template file
+        filename: './../shop.html', // output file
+        // inject: body
+      }),
     ],
     optimization: {
       // minification - only performed when mode = production
@@ -84,7 +91,8 @@ module.exports = [
         `...`,
         // css minification
         new CssMinimizerPlugin(),
-      ]
+      ],
+      moduleIds: 'hashed',
     },
   }
 ];
