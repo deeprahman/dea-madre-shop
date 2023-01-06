@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
             // hide every submenu as well
             everysubmenu.style.display = 'none';
           });
-      })
+      });
     });
   
     document.querySelectorAll('.dropdown-menu a').forEach(function(element){

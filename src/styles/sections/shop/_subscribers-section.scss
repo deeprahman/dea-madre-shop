@@ -1,0 +1,46 @@
+#subscribers-section {
+    position:relative;
+
+    .subscriber-section__background{
+        top:10px;
+        position:absolute;
+        width:100%;
+        z-index:-100;
+    }
+
+    @include media-breakpoint-up(lg) {
+        .subscriber-section__background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.11),rgba(0, 0, 0, 0.144)) ,url('~/src/images/hero-carosel/distillati_GettyImages-1154768988-1920w.jpg');
+            background-size: cover;
+            height: 20vh;
+
+            background-attachment: fixed;
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        .subscriber-section__background {
+            background-image: url('~/src/images/hero-carosel/distillati_GettyImages-1154768988-1920w.jpg');
+            background-size: cover;
+            height: 20vh;
+
+            background-position: 0% 30%;
+            background-repeat: no-repeat;
+        }
+    }
+    .form-input{
+        background-color:$primary;
+        color:$light;
+        border: 0px solid $primary;
+        border-bottom: 1px solid white;
+    }
+    .form-input:focus{
+        background-color:$primary;
+        color:$light;
+        border: 0px solid $primary;
+        border-bottom: 1px solid white;
+    }
+
+}

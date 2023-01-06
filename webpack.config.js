@@ -74,14 +74,14 @@ module.exports = [
         // favicon: paths.src + '/images/favicon.png',
         template: path.join(__dirname, 'src', 'template.html'), // template file
         filename: './../index.html', // output file
-        // inject: body
+        inject: "body"
       }),
       new HtmlWebpackPlugin({
         title: 'webpack Boilerplate',
         // favicon: paths.src + '/images/favicon.png',
         template: path.join(__dirname, 'src', 'template-shop.html'), // template file
         filename: './../shop.html', // output file
-        // inject: body
+        inject: "body"
       }),
     ],
     optimization: {

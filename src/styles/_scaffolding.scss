@@ -37,6 +37,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+
+
 ol, ul {
 	list-style: none;
 }
@@ -52,7 +54,24 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+.banner{
+	overflow-x:hidden;
+}
+#product-cats{
+	overflow-x:hidden;
+}
+.product-beverage{
+	overflow-x:hidden;
+}
+.product-wine{
+	overflow-x:hidden;
+}
+#subscribers-section{
+	overflow-x:hidden;
+}
+footer{
+	overflow-x:hidden;
+}
 
 
 

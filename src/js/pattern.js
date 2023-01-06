@@ -1,4 +1,3 @@
-"user strict";
 /**
  * Sets background image to the elements with the pattern class;
  */

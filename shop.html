@@ -9,7 +9,7 @@
     <title>
         webpack Boilerplate
     </title>
-<script defer src="dist/js/main.min.js"></script><link href="dist/css/main.min.css" rel="stylesheet"></head>
+<link href="dist/css/main.min.css" rel="stylesheet"></head>
 
 <body>
 
@@ -105,6 +105,7 @@
     <!-- </div> -->
 </nav>
 
+
         <!-- Banner section -->
         <div class="banner">
   <div class="banner-shade"></div>
@@ -148,6 +149,154 @@
 
 </div>
 
+        <!-- Product-category section -->
+
+        <section id="product-cats">
+    <div class="container py-5">
+        <div class="row row-cols-1 row-cols-lg-3 g-3">
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the beverage product">
+                <div class="procudt-cats__beverage product">
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="beverage">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the Wine products">
+                <div class="procudt-cats__wines product">
+
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="wines">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the Cafeteria">
+                <div class="procudt-cats__cafeteria product">
+
+    
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="cafeteria">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 justify-content-center py-0 py-lg-3 ">
+        <div class="col divider d-none d-lg-block">
+
+        </div>
+    </div>
+</section>
+        <!-- Product-wine section -->
+
+        <div class="product-wine my-3">
+    <div class="row row-cols-1">
+        <div class="col text-center">
+            <h2>
+                <span>Wines</span>
+            </h2>
+            <p class="lead">di seguito una selezione dei nostri prodotti</p>
+        </div>
+    </div>
+    <!-- On small devices -->
+    <div class="products-wine-on-small-devices d-block  d-lg-none">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <!-- On Large devices -->
+    <div class="products-wine-on-large-devices d-none d-lg-block">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <div class="container justify-content-center d-flex">
+        <div class="tetxt-center">
+            <a id="btn-wine" href="#" class="fs-3">Show More</a>
+        </div>
+    </div>
+</div>
+
+        <!-- Product-beverage section -->
+
+        <div class="product-beverage my-3">
+    <div class="row row-cols-1">
+        <div class="col text-center">
+            <h2>
+                <span>The Beverage</span>
+            </h2>
+            <p class="lead">Below is a selection of our products</p>
+        </div>
+    </div>
+    <!-- On small devices -->
+    <div class="products-beverage-on-small-devices d-block  d-lg-none">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <!-- On Large devices -->
+    <div class="products-beverage-on-large-devices d-none d-lg-block">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <div class="container justify-content-center d-flex">
+        <div class="tetxt-center">
+            <a id="btn-beverage" href="#" class="fs-3">Show More</a>
+        </div>
+    </div>
+</div>
+
+        <!-- Subscribe section -->
+
+        <div id="subscribers-section" class="mt-5 ">
+    <div class="subscriber-section__background"></div>
+    <div class="container-fluid">
+
+        <div class="row g-3">
+            <div class="col-12 col-lg-6 mt-5 mb-md-5">
+                <p class="text-white fs-3">
+                    Iscriviti alla nostra newsletter per ricevere offerte e promozioni
+                </p>
+            </div>
+
+            <div class="col-12 col-lg-6 pt-1 pe-0 pt-lg-5 pe-lg-5">
+                <form class="row g-3 bg-primary mt-lg-5 p-lg-5 rounded ">
+                    <div class="col-md-6 px-md-3">
+                        <label for="inputEmail4" class="form-label text-light">Name & Surname</label>
+                        <input type="text" class="form-control form-input" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6 px-md-3">
+                        <label for="inputPassword4" class="form-label text-light">Email</label>
+                        <input type="email" class="form-control form-input" id="inputPassword4">
+                    </div>
+                    
+                    <div class="col-12 col-lg-7 m-1 mt-lg-3  pt-1 pt-lg-2 px-md-3 p-md-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label text-light bg-primary" for="gridCheck">
+                                I have read the information and authorize the processing of my personal data for the purposes indicated therein
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 my-0 mt-lg-5 py-0 pt-lg-5 pb-3">
+                        <button type="submit" class="btn btn-outline-secondary rounded-pill contact-btn text-light">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
             <!-- footer section -->
             
 <footer class="bg-danger dg-danger">
@@ -173,6 +322,6 @@
         </div>
     </div>
 </footer>
-</body>
+<script defer src="dist/js/main.min.js"></script></body>
 
 </html>

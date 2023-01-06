@@ -12,22 +12,24 @@
 </head>
 
 <body>
- 
+
   <header class="">
     <%= require('html-loader!./views/sections/_top.html').default %>
   </header>
-      <%= require('html-loader!./views/sections/_nav.html').default %>
+  <%= require('html-loader!./views/sections/_nav.html').default %>
+    <main>
 
-  <!-- Banner section -->
-  <%= require('html-loader!./views/sections/_banner.html').default %>
-    <!-- our Shop section -->
-    <%= require('html-loader!./views/sections/_our-shop.html').default %>
+      <!-- Banner section -->
+      <%= require('html-loader!./views/sections/_banner.html').default %>
+        <!-- our Shop section -->
+        <%= require('html-loader!./views/sections/_our-shop.html').default %>
 
-    <%= require('html-loader!./views/sections/_our-clients.html').default %>
-    <!-- Contact Section -->
-    <%= require('html-loader!./views/sections/_contact.html').default %>
-      <!-- footer section -->
-      <%= require('html-loader!./views/footer.html').default %>
+          <%= require('html-loader!./views/sections/_our-clients.html').default %>
+            <!-- Contact Section -->
+            <%= require('html-loader!./views/sections/_contact.html').default %>
+    </main>
+    <!-- footer section -->
+    <%= require('html-loader!./views/footer.html').default %>
 </body>
 
 </html>

@@ -1,0 +1,72 @@
+#product-cats {
+
+    img {
+        height: 36.25rem;
+        width: 27.1rem;
+    }
+
+
+    @include media-breakpoint-down(lg) {
+        img:hover {
+            transform: scale(1.5);
+        }
+    }
+
+
+    .product {
+        position: relative;
+        overflow: hidden;
+    }
+
+    @include media-breakpoint-up(lg) {
+
+        .product:hover:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            background-color: rgba(236, 232, 232, 0.61);
+
+
+        }
+    }
+
+    .procudt-cats__beverage:after {
+        content: "Beverage";
+        position: absolute;
+        font-size: 3rem;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 1rem;
+        color: white;
+    }
+
+    .procudt-cats__wines:after {
+        content: "Wines";
+        position: absolute;
+        font-size: 3rem;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 1rem;
+        color: white;
+    }
+
+    .procudt-cats__cafeteria:after {
+        content: "Cafeteria";
+        position: absolute;
+        font-size: 3rem;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 1rem;
+        color: white;
+    }
+
+    .divider {
+        height: 70px;
+        width: 122px;
+        background-image: url("~/src/images/decoratives/Divider-Decorative_02.png");
+        background-repeat: no-repeat;
+        // background-size:cover;
+    }
+}
