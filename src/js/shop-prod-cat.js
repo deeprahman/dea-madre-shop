@@ -25,7 +25,6 @@ if(prodCat.imgBev !== null && prodCat.imgWines !== null &&prodCat.imgWines !== n
         this.setImages(this.imgWines, wines_img);
         this.setImages(this.imgCafe, cafeteria_img);
     };
-    prodCat.init();
 }
 export default prodCat;
 

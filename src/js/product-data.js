@@ -1,8 +1,8 @@
 "use strict";
 
-import { generateProductData, productWine, productsBeverage } from "./dummy-data.js";
 
-class ShopProducts {
+
+export class ShopProducts {
     constructor(css_class, data) {
         this.productContainer = document.getElementsByClassName(css_class)[0];
         this.productData = data;
@@ -137,10 +137,3 @@ class ShopProducts {
     }
 }
 
-const wineData = generateProductData(productWine);
-const sp1 = new ShopProducts('products-wine-on-small-devices', wineData);
-sp1.init(false);
-
-const beverageData = generateProductData(productsBeverage);
-const sp2 = new ShopProducts('products-beverage-on-large-devices',beverageData);
-sp2.init();

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta page-name="shop">
 
     <title>
         <%= htmlWebpackPlugin.options.title %>
@@ -22,23 +23,25 @@
         <!-- Banner section -->
         <%= require('html-loader!./views/sections/shop/_shop_banner.html').default %>
 
-        <!-- Product-category section -->
+            <!-- Product-category section -->
 
-        <%= require('html-loader!./views/sections/shop/_product_cat.html').default %>
-        <!-- Product-wine section -->
+            <%= require('html-loader!./views/sections/shop/_product_cat.html').default %>
+                <!-- Product-wine section -->
 
-        <%= require('html-loader!./views/sections/shop/_product_wine.html').default %>
+                <%= require('html-loader!./views/sections/shop/_product_wine.html').default %>
 
-        <!-- Product-beverage section -->
+                    <!-- Product-beverage section -->
 
-        <%= require('html-loader!./views/sections/shop/_product_beverage.html').default %>
+                    <%= require('html-loader!./views/sections/shop/_product_beverage.html').default %>
 
-        <!-- Subscribe section -->
+                        <!-- Subscribe section -->
 
-        <%= require('html-loader!./views/sections/shop/_subscribe_section.html').default %>
+                        <%= require('html-loader!./views/sections/shop/_subscribe_section.html').default %>
+                            <!-- Company Description section -->
+                            <%= require('html-loader!./views/sections/shop/_company_description.html').default %>
 
-            <!-- footer section -->
-            <%= require('html-loader!./views/footer.html').default %>
+                                <!-- footer section -->
+                                <%= require('html-loader!./views/footer.html').default %>
 </body>
 
 </html>
