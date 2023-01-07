@@ -1,0 +1,28 @@
+#shop-contact-section {
+
+    background-image: url('~/src/images/grape/DEA+MADRE+COFFEE+-+BEVERAGE-SS-004-2880w.jpg');
+    background-position: center;
+
+    background-size: cover;
+
+    .icon {
+        height: 4rem;
+        width: 4rem;
+        // color:white;
+        fill: white;
+    }
+
+    
+    @include media-breakpoint-up(lg) {
+        .contact {
+            margin-top: -50px !important;
+        }
+
+    }
+        @include media-breakpoint-down(lg) {
+        .contact {
+            margin-top: auto !important;
+        }
+
+    }
+}
