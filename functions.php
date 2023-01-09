@@ -13,16 +13,13 @@ require_once INC_DIR . DIRECTORY_SEPARATOR . "custom-hooks" .DIRECTORY_SEPARATOR
 
 require_once INC_DIR . DIRECTORY_SEPARATOR . 'woo-breadcrumb.php'; // Modified WooCommerce Breadcrumb
 
-  // register webpack compiled js and css with theme
-  function enqueue_webpack_scripts() {
-    
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'abstract-page.php' ;
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-db-home.page.php' ;
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-dm-shop-page.php' ;
 
-    $cssFileURI = get_template_directory_uri() . '/dist/css/main.min.css';
-    wp_enqueue_style( 'dea-madre-css', $cssFileURI );
-    
 
-    $jsFileURI = get_template_directory_uri() . '/dist/js/main.min.js';
-    wp_enqueue_script( 'dea-madre-js', $jsFileURI , null , null , true );
-    
-  }
-  add_action( 'wp_enqueue_scripts', 'enqueue_webpack_scripts' );
+
+// The main class
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-dm-dea-madre.php' ;
+DM_Dea_Madre::main();
+ 

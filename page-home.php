@@ -2,6 +2,7 @@
 /*
 Template Name: Home
 */
+
 ?>
 
 <!-- The Header Section -->
@@ -18,7 +19,6 @@ Template Name: Home
 
 <!-- Our Clients sections -->
 <?php get_template_part('includes/template-parts/our-clients.htm') ?>
-
 
 <!-- The contact Section -->
 <?php get_template_part('includes/template-parts/contact.htm') ?>

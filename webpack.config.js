@@ -23,6 +23,9 @@ module.exports = [
       path: path.join(__dirname, 'dist'),
       filename: 'js/' + '[name].min.js',
     },
+    externals: {
+      jquery: 'jQuery'
+    },
     module: {
       rules: [
         // js babelization

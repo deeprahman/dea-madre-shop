@@ -1,27 +1,61 @@
-'use strict';
+import jQuery from 'jquery';
+import { ShopProducts as sp } from "./product-data.js";
 
-const productsBeverage = {
-    imgSrc: 'https://wp.localhost/wp-content/uploads/2023/01/3092808152.jpg',
-    productLink: '#',
-    productName: 'Gin Genesi 42° cl.70',
-    price: '29,99',
-    currency: '&euro;'
-};
 
-const productWine = {
-    imgSrc: 'https://wp.localhost/wp-content/uploads/2023/01/3059089658.jpg',
-    productLink: '#',
-    productName: "Cabernet Sauvignon Doc Venezia Ca' di Rajo l.0,75",
-    price: '9,90',
-    currency: '&euro;'
-};
+//===========================================================================================
 
-let generateProductData = function (initialData) {
-    let data = [];
-    for (let i = 0; i <= 19; i++) {
-        data.push(initialData);
+jQuery(function ($) {
+    "use strict";
+    let wineData = [], beverageData = [];
+    function theDivider(data) {
+        data.forEach((datum) => {
+
+            if (datum.productCatNames.includes('Wine')) {
+                wineData.push(productObject(datum));
+            } else if (datum.productCatNames.includes('Beverage')) {
+                beverageData.push(productObject(datum));
+            }
+        });
     }
-    return data;
-};
 
-export { generateProductData, productWine, productsBeverage };
+    function productObject(datum) {
+        return {
+            imgSrc: datum.productImage,
+            productLink: datum.productLink,
+            productName: datum.productName,
+            price: datum.productPrice,
+            currency: '&euro;'
+        }
+    }
+
+    function writeProductData() {
+        
+        const sp1 = new sp('products-wine-on-large-devices', wineData);
+        sp1.init();
+
+
+        const sp2 = new sp('products-beverage-on-large-devices', beverageData);
+        sp2.init();
+    }
+
+    if (typeof shopObject === 'object') {
+        $.ajax({
+            url: '/wp-admin/admin-ajax.php',
+            type: 'GET',
+            data: {
+                action: 'shop_data',
+                nonce: shopObject.nonce
+            },
+            success: function (res) {
+
+                theDivider(res.data);
+                writeProductData();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    } else {
+        console.log('The shop Object is not defined');
+    }
+});

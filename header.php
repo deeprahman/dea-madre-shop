@@ -21,7 +21,8 @@
   <!-- open graph header includes -->
   <meta property="og:title" content="<?php get_the_title() ?>" />
   <meta property="og:url" content="<?php wp_get_canonical_url() ?>" />
-  <meta property="og:description" content="<?php get_the_excerpt() ?>" />
+  <meta property="og:description" content="<?php get_the_excerpt() ?>"/>
+  <meta page-name="<?php echo $wp_query->post->post_title; ?>"/>
 
   <!-- wordpress header includes -->
   <?php wp_head(); ?>
