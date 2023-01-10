@@ -1,5 +1,6 @@
 import jQuery from 'jquery';
 import { ShopProducts as sp } from "./product-data.js";
+import page from './get-page-name.js';
 jQuery(function ($) {
     "use strict";
     let wineData = [], beverageData = [];
@@ -69,7 +70,7 @@ jQuery(function ($) {
         }.bind({ class_name: css_class_name }));
     }
 
-    if (typeof shopObject === 'object') {
+    if (typeof shopObject === 'object' && page.pageName === 'Shop') {
         $.ajax({
             url: '/wp-admin/admin-ajax.php',
             type: 'GET',

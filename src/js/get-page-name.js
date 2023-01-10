@@ -1,8 +1,7 @@
 
 "use strict";
-console.log("get-page.js");
+
 const meta = document.querySelectorAll('meta[page-name]');
-console.log(meta);
 
 const page = Object.create(null);
 
