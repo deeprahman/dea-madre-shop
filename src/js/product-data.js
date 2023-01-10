@@ -19,6 +19,7 @@ export class ShopProducts {
             let data = this.makeProductHtmlSmallDevices(this.productData);
             this.writeProductData(data);
         }
+        return this;
     }
 
     getProductTemplate(data) {
@@ -135,5 +136,7 @@ export class ShopProducts {
         }
         return data;
     }
+
+
 }
 

@@ -1,9 +1,5 @@
 import jQuery from 'jquery';
 import { ShopProducts as sp } from "./product-data.js";
-
-
-//===========================================================================================
-
 jQuery(function ($) {
     "use strict";
     let wineData = [], beverageData = [];
@@ -29,13 +25,48 @@ jQuery(function ($) {
     }
 
     function writeProductData() {
-        
-        const sp1 = new sp('products-wine-on-large-devices', wineData);
-        sp1.init();
 
 
-        const sp2 = new sp('products-beverage-on-large-devices', beverageData);
-        sp2.init();
+
+        instantiateClassAccordingToDeviceWith(
+            'products-wine-on-large-devices',
+            'products-wine-on-small-devices',
+            wineData,
+            "btn-wine"
+        );
+
+        instantiateClassAccordingToDeviceWith(
+            'products-beverage-on-large-devices',
+            'products-beverage-on-small-devices',
+            beverageData,
+            "btn-beverage"
+        );
+
+
+    }
+
+    function instantiateClassAccordingToDeviceWith(css_class_lg, css_class_sm, data, btn_id) {
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+            // No large devices
+            (new sp(css_class_sm, data)).init(false);
+            showMoreButton(css_class_sm, btn_id);
+
+        } else {
+            // Large devices
+            (new sp(css_class_lg, data)).init();
+            showMoreButton(css_class_lg, btn_id);
+        }
+    }
+
+    function showMoreButton(css_class_name, btn_id) {
+
+        $("#" + btn_id).on('click', function (e) {
+            e.preventDefault();
+            $("." + this.class_name + " ." + 'd-none').each(function(){
+                $(this).removeClass("d-none");
+                $(this).addClass("d-block");
+            });
+        }.bind({ class_name: css_class_name }));
     }
 
     if (typeof shopObject === 'object') {

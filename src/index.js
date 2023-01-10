@@ -1,7 +1,7 @@
 "use strict";
 import { bootstrap } from 'bootstrap';
 import page from './js/get-page-name.js';
-import "./js/dummy-data.js";
+import "./js/fetch-shop-products.js";
 // Test import of a JavaScript module
 import './js/multilevel-nav.js';
 import oc from './js/our-client.js';
