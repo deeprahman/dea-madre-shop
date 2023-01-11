@@ -16,13 +16,17 @@ if (page.pageName === 'Home') {
     oc.init();
     pat.init();
 } else if (page.pageName === 'Shop') {
+
     pat.init();// Initialize pattern
 
     prodCat.init(); // Initialize the product category
 
 
 
+} else {
+    pat.init();// Initialize pattern
 
+    prodCat.init(); // Initialize the product category
 }
 
 

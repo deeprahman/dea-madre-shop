@@ -70,7 +70,7 @@ jQuery(function ($) {
         }.bind({ class_name: css_class_name }));
     }
 
-    if (typeof shopObject === 'object' && page.pageName === 'Shop') {
+    if (typeof shopObject === 'object' && (page.pageName === 'Shop' || $('#product-cats').length)) {
         $.ajax({
             url: '/wp-admin/admin-ajax.php',
             type: 'GET',
