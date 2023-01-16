@@ -8,8 +8,15 @@ define('INC_DIR', get_template_directory() . DIRECTORY_SEPARATOR . 'includes'); 
 define('TMPLT_DIR', INC_DIR . DIRECTORY_SEPARATOR . 'template-parts'); // THe template parts directory
 
 require_once INC_DIR . DIRECTORY_SEPARATOR . "woocommerce-support.inc.php"; // Configures WooCommerce theme support
+
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-dm-utilities.php';
+
+// Hook Related
+require_once INC_DIR . DIRECTORY_SEPARATOR . "custom-hooks" . DIRECTORY_SEPARATOR . 'remove-hooks.php';
+require_once INC_DIR . DIRECTORY_SEPARATOR . 'custom-hooks/class-dm-hook-methods.php';
+
 require_once INC_DIR . DIRECTORY_SEPARATOR . "custom-hooks" . DIRECTORY_SEPARATOR . 'hooks.php'; // Add custom hooks
-require_once INC_DIR . DIRECTORY_SEPARATOR . "custom-hooks" .DIRECTORY_SEPARATOR . 'remove-hooks.php';
+
 
 require_once INC_DIR . DIRECTORY_SEPARATOR . 'woo-breadcrumb.php'; // Modified WooCommerce Breadcrumb
 

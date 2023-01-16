@@ -1,0 +1,50 @@
+#single-product {
+
+    form {
+        margin-bottom: 1rem;
+    }
+
+    .quantity {
+        input {
+            width: 3rem;
+        }
+
+        margin-bottom:1rem;
+    }
+
+    .single_add_to_cart_button {
+        min-width: 256px;
+        height: 45px;
+    }
+
+    .single-product-image {
+        .woocommerce-product-gallery__trigger {
+            display: none;
+
+
+
+        }
+
+        @include media-breakpoint-up(lg) {
+
+            .woocommerce-product-gallery {
+                display: flex;
+                justify-content: end;
+
+
+
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+
+            .woocommerce-product-gallery {
+                display: flex;
+                justify-content: center;
+
+
+
+            }
+        }
+    }
+}
