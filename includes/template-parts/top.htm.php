@@ -8,7 +8,9 @@
         <a class="btn btn-outline-light rounded-pill contact-btn" href="#">Contact</a>
     </div>
     <dov id="user-info" class="ms-0 me-5 my-3 d-flex flex-row align-items-center">
-        <div><i class="bi bi-cart text-white fs-4"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-4"><?php echo wc()->cart->get_cart_contents_count() ?></span></div>
+        <div>
+            <a href="<?php echo esc_url( wc_get_cart_url() ) ?>"><i class="bi bi-cart text-white fs-4"></i></a>
+            &nbsp;&nbsp;<span id="cart-item-num" class="fs-4"><?php echo wc()->cart->get_cart_contents_count() ?></span></div>
         <div class="ms-3"><i class="bi bi-person-fill text-white fs-1"></i></div>
         <div class="ms-3"><i class="bi bi-facebook fs-1"></i></div>
     </dov>
