@@ -1,0 +1,1 @@
+<h2 class="display-5"><?php esc_html_e('Payment', 'deamadre'); ?></h2>
