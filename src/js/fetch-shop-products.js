@@ -72,7 +72,7 @@ jQuery(function ($) {
 
     if (typeof shopObject === 'object' && (page.pageName === 'Shop' || $('#product-cats').length)) {
         $.ajax({
-            url: '/wp-admin/admin-ajax.php',
+            url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
             type: 'GET',
             data: {
                 action: 'shop_data',
