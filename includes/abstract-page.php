@@ -3,11 +3,18 @@
 abstract class Page
 {
 
+    /**
+     * Array containing data to be passed ot the webpack js
+     *
+     * @var array
+     */
+    protected $dmObject;
 
 
     protected function initialize()
     {
         $this->loadScripts();
+        
     }
 
 
@@ -26,10 +33,7 @@ abstract class Page
 
         add_action($hook_logged, $params['callback']);
 
-  
-
         //send nonce value to the respective js file
-
 
     }
 
@@ -48,6 +52,8 @@ abstract class Page
         $jsFileURI = get_template_directory_uri() . '/dist/js/main.min.js';
         wp_enqueue_script('dea-madre-js', $jsFileURI, array('jquery'), 1.0, true);
 
+        $this->commonDataToBePassedToWebPackJs();
+
     }
 
     protected function errorHandler($error){
@@ -56,5 +62,20 @@ abstract class Page
 
         }
         
+    }
+
+    private function setDmObject(){
+        $this->dmObject = [
+            'siteUrl' => site_url()
+        ];
+    }
+
+    protected function commonDataToBePassedToWebPackJs(){
+        $this->setDmObject();
+        if(
+         !   wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
+        ){
+            return new WP_Error(500, "Script Localization Failed");
+        }
     }
 }
