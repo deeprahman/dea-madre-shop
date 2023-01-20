@@ -1,6 +1,6 @@
 ### Dea Madre E-Shop
 
-
+## Install JavaScript dependencies by running the following command
 ```
 npm install
 ```
@@ -23,9 +23,14 @@ This theme can be downloaded and deployed into a WordPress instance's themes dir
 1. Install and active the WooCommerce
 2. Delete all the pages created by WooCommerce also remove them from the WordPress trash
 3. Active the Dea Madre Shop theme
+4. Set static home page to `Home`
 4. Create two product categories `Wine`  and  `Beverage`
 5. Add some product and assign any of the two categories
 6. The products will be shown in the 'Our Shop' page under the Shop nav link
+
+
+### Note: The theme uses pretty permalink and automatically change to it ofter theme setup
+### Note: The theme requires WordPress v. 5.5 or above
 
 
 

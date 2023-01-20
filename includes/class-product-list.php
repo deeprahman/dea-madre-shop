@@ -1,28 +1,31 @@
 <?php
-declare(strict_types=1);
-class DM_Product_List {
 
-    /**
-     * GEt Products according to the given parameter value
-     *
-     * @param array $params
-     * @return array
-     */
-  public function getProducts(array $params = array( 'limit' => -1 )):array {
+declare(strict_types=1);
+class DM_Product_List
+{
+
+  /**
+   * GEt Products according to the given parameter value
+   *
+   * @param array $params
+   * @return array
+   */
+  public function getProducts(array $params = array('limit' => -1)): array
+  {
     $res = [];
     // Get all the products
-    $products = wc_get_products( $params );
+    $products = wc_get_products($params);
 
     // Loop through the products
-    foreach ( $products as $product ) {
-        $tmp = new StdClass();
+    foreach ($products as $product) {
+      $tmp = new StdClass();
       // Get the add-to-cart link
       $tmp->addToCartLink = $product->add_to_cart_url();
 
       // Get the product categories
-      $product_categories = get_the_terms( $product->get_id(), 'product_cat' );
+      $product_categories = get_the_terms($product->get_id(), 'product_cat');
       $product_category_names = array();
-      foreach ( $product_categories as $product_category ) {
+      foreach ($product_categories as $product_category) {
         $product_category_names[] = $product_category->name;
       }
       $tmp->productCatNames = $product_category_names;
@@ -36,10 +39,9 @@ class DM_Product_List {
       $tmp->productLink = $product->get_permalink();
 
       // Get the product image
-      $tmp->productImage = (wp_get_attachment_image_src( get_post_thumbnail_id( $product->get_id() ), 'single-post-thumbnail' ))[0];
-      
-      array_push($res, $tmp);
+      $tmp->productImage = (wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'single-post-thumbnail'))[0];
 
+      array_push($res, $tmp);
     }
     return $res;
   }

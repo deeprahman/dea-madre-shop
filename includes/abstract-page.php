@@ -10,13 +10,25 @@ abstract class Page
      */
     protected $dmObject;
 
+    protected $pageName;
 
-    protected function initialize()
+    protected function initialize($page_name)
     {
+        $this->setPageName($page_name);
+        $this->setDmObject(['pageName' => $this->pageName]);
+
+        
         $this->loadScripts();
         
     }
 
+    /**
+     * Sets the pageName  property
+     *
+     * @param string $page_name
+     * @return self
+     */
+    abstract protected function setPageName(string $page_name):self;
 
     /**
      * Creates an AJAX handler
@@ -56,12 +68,23 @@ abstract class Page
 
     }
 
-    protected function errorHandler($error){
-        if( is_wp_error( $error ) ){
-             exit($error->get_error_message());
 
+
+    public function setDmObject($params = array()){
+        $this->dmObject = [
+            'siteUrl' => site_url()
+        ];
+
+       $this->dmObject = array_merge($this->dmObject, $params);
+    }
+
+    protected function commonDataToBePassedToWebPackJs(){
+
+        if(
+         !   wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
+        ){
+            return new WP_Error(500, "Script Localization Failed");
         }
-        
     }
 
     private function setDmObject(){

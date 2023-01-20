@@ -12,21 +12,19 @@ import { ShopProducts as sp } from "./js/product-data.js";
 
 
 
-if (page.pageName === 'Home') {
-    oc.init();
-    pat.init();
-} else if (page.pageName === 'Shop') {
-
-    pat.init();// Initialize pattern
-
-    prodCat.init(); // Initialize the product category
 
 
 
-} else {
-    pat.init();// Initialize pattern
+switch (dmObject.pageName) {
+    case 'shop':
+        pat.init();// Initialize pattern image
 
-    prodCat.init(); // Initialize the product category
+        prodCat.init(); // Initialize the product category
+        break;
+
+    default:
+        oc.init();
+        pat.init();
 }
 
 
