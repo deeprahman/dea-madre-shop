@@ -14,10 +14,15 @@ class DM_Shop_Page extends Page
     public function __construct()
     {
         $this->setPL(['limit'=> -1]);
-        $this->initialize();
+        $this->initialize('shop');
         $this->setParams()->handleAjax($this->getParams());
 
         add_action('wp_enqueue_scripts', [$this,'sendNonceToJsFile'],20);
+    }
+
+    protected function setPageName(string $page_name):self{
+        $this->pageName = $page_name;
+        return $this;
     }
 
     private function setPL($params = null){

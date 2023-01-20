@@ -10,13 +10,24 @@ abstract class Page
      */
     protected $dmObject;
 
+    protected $pageName;
 
-    protected function initialize()
+    protected function initialize($page_name)
     {
-        $this->loadScripts();
+        $this->setPageName($page_name);
+        $this->setDmObject(['pageName' => $this->pageName]);
+
         
+        $this->loadScripts();
     }
 
+    /**
+     * Sets the pageName  property
+     *
+     * @param string $page_name
+     * @return self
+     */
+    abstract protected function setPageName(string $page_name):self;
 
     /**
      * Creates an AJAX handler
@@ -64,14 +75,16 @@ abstract class Page
         
     }
 
-    private function setDmObject(){
+    public function setDmObject($params = array()){
         $this->dmObject = [
             'siteUrl' => site_url()
         ];
+
+       $this->dmObject = array_merge($this->dmObject, $params);
     }
 
     protected function commonDataToBePassedToWebPackJs(){
-        $this->setDmObject();
+
         if(
          !   wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
         ){

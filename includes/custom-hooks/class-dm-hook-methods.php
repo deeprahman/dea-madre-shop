@@ -18,4 +18,12 @@ class DM_Hook_Methods
     public static function dm_single_product_quantity_label(){
         echo sprintf('<span class="%s">%s</span>&nbsp;', esc_html__('lead quantity-label', 'deamadre'), esc_html__('Quantity','deamadre'));
     }
+
+    public static function dm_class_loader_par_url(WP $wp){
+
+
+        var_dump($wp);
+        exit('Class loader for url is called');
+
+    }
 }
