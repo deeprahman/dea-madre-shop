@@ -67,13 +67,7 @@ abstract class Page
 
     }
 
-    protected function errorHandler($error){
-        if( is_wp_error( $error ) ){
-             exit($error->get_error_message());
 
-        }
-        
-    }
 
     public function setDmObject($params = array()){
         $this->dmObject = [

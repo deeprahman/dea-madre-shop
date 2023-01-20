@@ -12,7 +12,7 @@ final class DM_Utilities
     {
         $include_tax = wc_get_price_including_tax($product);
         $exclude_tax = wc_get_price_excluding_tax($product);
-        return (float) (  $include_tax -  $exclude_tax );
+        return (float) ($include_tax -  $exclude_tax);
     }
 
     /**
@@ -21,16 +21,17 @@ final class DM_Utilities
      * @param WC_Product $product
      * @return array    ['rate'=> <float>, 'label'=> <string>, 'shipping'=> <string>, 'compound' => <string>]
      */
-    public static function getVatRate(WC_Product $product):array
+    public static function getVatRate(WC_Product $product): array
     {
         $tax_class = $product->get_tax_class();
         $rates = self::taxRatesForShopLocation($tax_class);
-        
+
         return $rates[array_key_first($rates)];
     }
 
 
-    public static function taxRatesForShopLocation(string $tax_class):array{
+    public static function taxRatesForShopLocation(string $tax_class): array
+    {
         $location = [
             WC()->countries->get_base_country(),
             WC()->countries->get_base_state(),
@@ -41,7 +42,7 @@ final class DM_Utilities
         return WC_Tax::get_rates_from_location($tax_class, $location);
     }
 
-    public static function createPosts(string $title_of_the_page ): int
+    public static function createPosts(string $title_of_the_page): int
     {
         if (
             $page_obj = get_page_by_title(
@@ -63,10 +64,17 @@ final class DM_Utilities
                 'post_status'    => 'publish',
 
                 'post_type'      => 'page',
-//'id_of_the_parent_page_if_it_available'
+                //'id_of_the_parent_page_if_it_available'
             )
         );
-        
+
         return $page_id;
+    }
+
+    public static function errorHandler($error)
+    {
+        if (is_wp_error($error)) {
+            exit($error->get_error_message());
+        }
     }
 }

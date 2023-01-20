@@ -4,6 +4,9 @@ defined('ABSPATH') || exit;
 
 if (!class_exists('DM_Cart')) :
 
+    /**
+     * Contains methods to be used in WooCommerce cart template
+     */
     class DM_Cart
     {
         /**
@@ -21,16 +24,12 @@ if (!class_exists('DM_Cart')) :
         protected $cartUrl;
 
 
-        public static function init($wc = WC(), $url = wc_get_cart_url(),array $params): self
-        {
-            $params['cartUrl']= $url;
-            return new Self($wc, $params);
-        }
+
 
         public function __construct(WooCommerce $wc,array $params)
         {
             $this->woo = $wc;
-            $this->cartUrl = ($params['cartUrl'])?:'';
+            $this->cartUrl = ($params['cartUrl'])?:wc_get_cart_url();
         }
 
         public function getCartItems():array{
@@ -72,9 +71,10 @@ if (!class_exists('DM_Cart')) :
                 $tmp['formattedData'] = wc_get_formatted_cart_item_data($cart_item);
                 $tmp['backOrderNotification'] = $this->backOrderNotification($_product, $cart_item);
                 $tmp['price'] = $this->woo->cart->get_product_price($_product);
-                $tmp['quantity'] = $this->$cart_item['quantity'];
+                $tmp['quantity'] = $cart_item['quantity'];
                 $tmp['subtotal'] = $this->woo->cart->get_product_subtotal($_product, $cart_item['quantity']);
                 $tmp['cartUrl'] = $this->cartUrl; // Send coupon code to this url
+                $tmp['cartItemKey'] = $cart_item_key;
                 array_push($result, $tmp);
             }
             return $result;

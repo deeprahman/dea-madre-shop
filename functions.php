@@ -13,17 +13,7 @@ require_once INC_DIR . DIRECTORY_SEPARATOR . "woocommerce-support.inc.php"; // C
 require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-dm-utilities.php';
 require_once INC_DIR . DIRECTORY_SEPARATOR . 'class-dm-dea-madre.php';
 
-
-
-
 require_once INC_DIR . DIRECTORY_SEPARATOR . 'woo-breadcrumb.php'; // Modified WooCommerce Breadcrumb
-
-
-
-
-
-$currentPageUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-$res = wp_get_http_headers($currentPageUrl);
 
 $params['pages'] = require INC_DIR . DIRECTORY_SEPARATOR . 'pages.php';
 

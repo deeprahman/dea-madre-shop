@@ -12,6 +12,7 @@ final class DM_Dea_Madre
 
     public function __construct(array $params)
     {
+        DM_Utilities::errorHandler($this->checkEnvironment());
         $this->initProperties($params);
     }
 
@@ -21,7 +22,12 @@ final class DM_Dea_Madre
         return $this;
     }
 
-
+    private function checkEnvironment() // requires WordPress 5.5
+    {
+        if ('production' === wp_get_environment_type() && 'https' !== $_SERVER['REQUEST_SCHEMA']) {
+            return new WP_Error(500, 'SSL is not active');
+        }
+    }
 
 
     private function setPageNames($page_names)
@@ -32,8 +38,8 @@ final class DM_Dea_Madre
     public function main()
     {
 
-        add_action('after_switch_theme', [$this, 'necessaryPages'],10); // Create pages at theme activation
-        add_action('after_setup_theme', [$this,'changeToPrettyPermalinks'],20);
+        add_action('after_switch_theme', [$this, 'necessaryPages'], 10); // Create pages at theme activation
+        add_action('after_setup_theme', [$this, 'changeToPrettyPermalinks'], 20);
         add_action('parse_request', [$this, 'pageClassLoader'], 10);  // Load Classes as per request
         $this->loadHooks();
         $this->handleXmlHttp();
