@@ -32,7 +32,8 @@ final class DM_Dea_Madre
     public function main()
     {
 
-        add_action('after_switch_theme', [$this, 'necessaryPages']); // Create pages at theme activation
+        add_action('after_switch_theme', [$this, 'necessaryPages'],10); // Create pages at theme activation
+        add_action('after_setup_theme', [$this,'changeToPrettyPermalinks'],20);
         add_action('parse_request', [$this, 'pageClassLoader'], 10);  // Load Classes as per request
         $this->loadHooks();
         $this->handleXmlHttp();
@@ -95,16 +96,23 @@ final class DM_Dea_Madre
     protected function handleXmlHttp()
     {
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-            $ret_obj= new WP_Error(404, "Invalid XMLHttpRequest");
+            $ret_obj = new WP_Error(404, "Invalid XMLHttpRequest");
             $referer = $_SERVER['HTTP_REFERER'];
             $matches = [];
-            foreach($this->pageNames as $name){
-                $reg_ex = "/\/(". $name.")(\/)?/";
-                if( 1 === preg_match($reg_ex,$referer, $matches)){
+            foreach ($this->pageNames as $name) {
+                $reg_ex = "/\/(" . $name . ")(\/)?/";
+                if (1 === preg_match($reg_ex, $referer, $matches)) {
                     $ret_object = $this->instantiatePageClass($matches[1]);
                 }
             }
             return $ret_object;
         }
+    }
+
+    public function changeToPrettyPermalinks()
+    {
+        global $wp_rewrite;
+        $wp_rewrite->set_permalink_structure('/%postname%/');
+        $wp_rewrite->flush_rules();
     }
 }

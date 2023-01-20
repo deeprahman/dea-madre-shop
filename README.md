@@ -28,5 +28,8 @@ This theme can be downloaded and deployed into a WordPress instance's themes dir
 6. The products will be shown in the 'Our Shop' page under the Shop nav link
 
 
+### Note: The theme uses pretty permalink and automatically change to it ofter theme setup
+
+
 
 
