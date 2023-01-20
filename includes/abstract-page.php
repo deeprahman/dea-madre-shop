@@ -87,18 +87,5 @@ abstract class Page
         }
     }
 
-    private function setDmObject(){
-        $this->dmObject = [
-            'siteUrl' => site_url()
-        ];
-    }
 
-    protected function commonDataToBePassedToWebPackJs(){
-        $this->setDmObject();
-        if(
-         !   wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
-        ){
-            return new WP_Error(500, "Script Localization Failed");
-        }
-    }
 }
