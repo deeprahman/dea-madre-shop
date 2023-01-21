@@ -45,7 +45,6 @@ abstract class Page
 
         add_action($hook_logged, $params['callback']);
 
-        //send nonce value to the respective js file
 
     }
 

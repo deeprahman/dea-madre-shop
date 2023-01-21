@@ -10,14 +10,14 @@ if (!class_exists('DM_Cart_Page')) :
         /**
          * @var DM_cart
          */
-        private $cart;
+        private $dmCart;
 
         public function __construct()
         {
             $this->setCart();
             $this->initialize('cart');
             
-            // exit(var_dump($this->cart->getTotal()));
+            exit(var_dump($this->dmCart->getCartInfo()));
         }
         
         public function setCart(){
@@ -25,7 +25,7 @@ if (!class_exists('DM_Cart_Page')) :
                 file_exists($file = INC_DIR. DIRECTORY_SEPARATOR . 'class-dm-cart.php')
             ){
                 require_once $file;
-                $this->cart = new DM_Cart(WC(),[]);
+                $this->dmCart = new DM_Cart(WC(),[]);
             }
         }
 
