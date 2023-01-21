@@ -5,5 +5,6 @@
 return [
     'home',
     'shop',
-    'cart'
+    'cart',
+
 ];
