@@ -17,7 +17,7 @@ if (!class_exists('DM_Cart_Page')) :
             $this->setCart();
             $this->initialize('cart');
             
-            exit(var_dump($this->dmCart->getCartInfo()));
+            // exit(var_dump($this->dmCart->getCartInfo()));
         }
         
         public function setCart(){
