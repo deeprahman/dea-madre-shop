@@ -10,8 +10,8 @@
 
 <?php
 
-get_template_part('includes/template-parts/cart/cart-interface.htm');
-wc_get_template('cart/cart-totals.php');
+get_template_part('includes/template-parts/cart/cart-items-interface.htm');
+
 ?>
 
 <div>
