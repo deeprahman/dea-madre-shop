@@ -36,7 +36,7 @@ do_action('woocommerce_before_cart'); ?>
 			if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
 				$product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
 		?>
-				<article class="d-flex flex-row gap-2 woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
+				<article class="d-flex flex-row justify-content-between gap-3 my-3 woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
 
 					<span class="product-thumbnail">
 						<?php
@@ -49,8 +49,8 @@ do_action('woocommerce_before_cart'); ?>
 						}
 						?>
 					</span>
-					<span class="cart-item-info d-flex flex-column w-100">
-						<span class="cart-item-top d-flex flex-row">
+					<span class="cart-item-info d-flex flex-column justify-content-evenly w-100">
+						<span class="cart-item-top d-flex flex-row justify-content-between">
 							<span class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
 								<?php
 								if (!$product_permalink) {
@@ -87,7 +87,7 @@ do_action('woocommerce_before_cart'); ?>
 								?>
 							</span>
 						</span>
-						<div class="cart-item-bottom d-flex flex-row">
+						<div class="cart-item-bottom d-flex flex-row justify-content-between">
 							<span class="product-quantity" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
 								<?php
 								if ($_product->is_sold_individually()) {
@@ -132,13 +132,25 @@ do_action('woocommerce_before_cart'); ?>
 			<span class="actions">
 
 				<?php if (wc_coupons_enabled()) { ?>
-					<div class="coupon">
-						<label for="coupon_code"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_attr_e('Apply coupon', 'woocommerce'); ?></button>
+					<div class="coupon row justify-content-between mb-3">
+						<div class="col">
+
+							<label for="coupon_code" class=" visually-hidden"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text form-control" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" />
+						</div>
+						<div class="col">
+
+							<button type="submit" class="float-end button btn btn-outline-primary button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_attr_e('Apply coupon', 'woocommerce'); ?></button>
+						</div>
+
 						<?php do_action('woocommerce_cart_coupon'); ?>
 					</div>
 				<?php } ?>
+				<div class="row">
+					<div class="col">
 
-				<button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+						<button type="submit" class="float-end button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+					</div>
+				</div>
 
 				<?php do_action('woocommerce_cart_actions'); ?>
 

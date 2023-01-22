@@ -20,7 +20,12 @@ $removed_hook_list = [
     'woocommerce_before_single_product_summary' => [
         [10 => 'woocommerce_show_product_sale_flash'],
         // [20 => 'woocommerce_show_product_images']
+    ],
+    'woocommerce_proceed_to_checkout' => [
+        [10 => 'wc_get_pay_buttons'],
+        [20 => 'woocommerce_button_proceed_to_checkout']
     ]
+
 
 ];
 

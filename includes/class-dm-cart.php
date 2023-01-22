@@ -38,7 +38,7 @@ if (!class_exists('DM_Cart')) :
 
         private function initiateProperties(WooCommerce $wc,array $params){
             $this->woo = $wc;
-            $this->cartUrl = ($params['cartUrl'])?:wc_get_cart_url();
+            $this->cartUrl = (!empty($params['cartUrl']))?:wc_get_cart_url();
             $this->cartSubtotal = 0.0;
 
         }

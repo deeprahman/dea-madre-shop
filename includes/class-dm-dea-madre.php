@@ -64,7 +64,7 @@ final class DM_Dea_Madre
         require_once INC_DIR . DIRECTORY_SEPARATOR . "custom-hooks" . DIRECTORY_SEPARATOR . 'hooks.php'; // Add custom hooks
     }
 
-    public function pageClassLoader(WP $wp): Page
+    public function pageClassLoader(WP $wp): Page|WP_Error
     {
 
         if (isset($wp->query_vars['pagename'])) {
