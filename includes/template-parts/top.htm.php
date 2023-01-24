@@ -11,7 +11,12 @@
         <div>
             <a href="<?php echo get_permalink(get_page_by_title( 'Cart' )); ?>"><i class="bi bi-cart text-white fs-4"></i></a>
             &nbsp;&nbsp;<span id="cart-item-num" class="fs-4"><?php echo wc()->cart->get_cart_contents_count() ?></span></div>
-        <div class="ms-3"><i class="bi bi-person-fill text-white fs-1"></i></div>
+        <div class="ms-3">
+            <a href="<?php echo get_permalink(get_page_by_title( 'My Account' )); ?>">
+
+                <i class="bi bi-person-fill text-white fs-1"></i>
+            </a>
+        </div>
         <div class="ms-3"><i class="bi bi-facebook fs-1"></i></div>
     </dov>
 </div>

@@ -6,5 +6,7 @@ return [
     'home',
     'shop',
     'cart',
+    'my_account',
+    'checkout'
 
 ];

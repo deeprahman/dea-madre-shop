@@ -85,7 +85,9 @@ final class DM_Dea_Madre
             return new WP_Error(404, 'file ' . $full_file_name . ' not found');
         }
         require_once $full_file_name;
-        $class_name = 'DM_' . ucfirst($page) . '_Page';
+        $page = preg_replace('/-/','_',$page)?:$page;
+        $page_name = ucwords($page, '_');
+        $class_name = 'DM_' . $page_name . '_Page';
         return new $class_name();
     }
 
