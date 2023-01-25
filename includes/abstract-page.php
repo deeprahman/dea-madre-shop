@@ -17,9 +17,8 @@ abstract class Page
         $this->setPageName($page_name);
         $this->setDmObject(['pageName' => $this->pageName]);
 
-        
+
         $this->loadScripts();
-        
     }
 
     /**
@@ -28,7 +27,7 @@ abstract class Page
      * @param string $page_name
      * @return self
      */
-    abstract protected function setPageName(string $page_name):self;
+    abstract protected function setPageName(string $page_name): self;
 
     /**
      * Creates an AJAX handler
@@ -44,14 +43,12 @@ abstract class Page
         add_action($hook_logged_off, $params['callback']);
 
         add_action($hook_logged, $params['callback']);
-
-
     }
 
 
     public function loadScripts()
     {
-        add_action('wp_enqueue_scripts', [$this, 'webpackScripts'],10);
+        add_action('wp_enqueue_scripts', [$this, 'webpackScripts'], 10);
     }
 
     public function webpackScripts()
@@ -64,27 +61,31 @@ abstract class Page
         wp_enqueue_script('dea-madre-js', $jsFileURI, array('jquery'), 1.0, true);
 
         $this->commonDataToBePassedToWebPackJs();
-
     }
 
 
 
-    public function setDmObject($params = array()){
+    public function setDmObject($params = array())
+    {
         $this->dmObject = [
             'siteUrl' => site_url()
         ];
 
-       $this->dmObject = array_merge($this->dmObject, $params);
+        $this->dmObject = array_merge($this->dmObject, $params);
     }
 
-    protected function commonDataToBePassedToWebPackJs(){
+    protected function commonDataToBePassedToWebPackJs()
+    {
 
-        if(
-         !   wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
-        ){
+        if (
+            !wp_localize_script('dea-madre-js', 'dmObject', $this->dmObject)
+        ) {
             return new WP_Error(500, "Script Localization Failed");
         }
     }
 
-
+    protected function removeWooCommerceStyles()
+    {
+        add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+    }
 }

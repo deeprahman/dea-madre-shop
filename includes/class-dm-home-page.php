@@ -7,6 +7,7 @@ class DM_Home_Page extends Page
     public function __construct()
     {
         $this->initialize('home');
+        $this->removeWooCommerceStyles();
     }
 
     public static function init()
