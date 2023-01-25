@@ -3,10 +3,15 @@
  * This file contains the page names to be created for Dea Madre
  */
 return [
-    'home',
+    __('home', 'deamadre'),
     'shop',
     'cart',
     'my_account',
-    'checkout'
-
+    'checkout',
+    'products',
+    'contact',
+    'wine',
+    'beverage',
+    'cafeteria',
+    'margo'
 ];
