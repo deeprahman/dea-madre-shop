@@ -1,12 +1,12 @@
 <?php
+
 /**
  * This file contains the page names to be created for Dea Madre
  */
 return [
-    'home',
-    'shop',
-    'cart',
-    'my_account',
-    'checkout'
-
+    __('home', 'deamadre'),
+    __('shop', 'deamadre'),
+    __('checkout', 'deamadre'),
+    __('cart', 'deamadre'),
+    __('my account', 'deamadre')
 ];

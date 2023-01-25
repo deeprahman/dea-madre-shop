@@ -21,7 +21,7 @@ final class DM_Utilities
      * @param WC_Product $product
      * @return array    ['rate'=> <float>, 'label'=> <string>, 'shipping'=> <string>, 'compound' => <string>]
      */
-    public static function getVatRate(WC_Product $product): array
+    public static function getVatRate(WC_Product $product): array|null
     {
         $tax_class = $product->get_tax_class();
         $rates = self::taxRatesForShopLocation($tax_class);

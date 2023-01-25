@@ -49,7 +49,7 @@ final class DM_Dea_Madre
     {
 
         foreach ($this->pageNames as $page_name) {
-            DM_Utilities::createPosts('$page_name');
+            DM_Utilities::createPosts($page_name);
         }
     }
 
