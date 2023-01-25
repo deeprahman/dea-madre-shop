@@ -102,7 +102,6 @@ export class ShopProducts {
  * @param {Object[]} productData 
  * @return string Product Html
  */
-
     makeProductHtmlSmallDevices(productData) {
         let isClosed = false;
         let indicator = 1;

@@ -21,7 +21,7 @@ jQuery(function ($) {
             productLink: datum.productLink,
             productName: datum.productName,
             price: datum.productPrice,
-            currency: '&euro;'
+            currency: ''
         }
     }
 
@@ -65,7 +65,7 @@ jQuery(function ($) {
             e.preventDefault();
             $("." + this.class_name + " ." + 'd-none').each(function(){
                 $(this).removeClass("d-none");
-                $(this).addClass("d-block");
+                $(this).addClass("d-flex");
             });
         }.bind({ class_name: css_class_name }));
     }
