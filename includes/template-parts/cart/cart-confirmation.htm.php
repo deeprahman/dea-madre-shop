@@ -28,7 +28,7 @@
     <div class="row row-cols-1 row-cols-lg-2 my-3">
         <div class="col">
 
-            <button class="btn btn-outline-primary rounded-pill contact-btn fw-bold">
+            <button id="checkout-btn" class="btn btn-outline-primary rounded-pill contact-btn fw-bold">
                 <?php esc_html_e('Go to the checkout', 'deamadre') ?>
             </button>
         </div>

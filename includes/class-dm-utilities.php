@@ -77,4 +77,22 @@ final class DM_Utilities
             exit($error->get_error_message());
         }
     }
+
+    /**
+     * Checks  if the cart needs shipment and shipment cost has been calculated
+     *
+     * @return bool
+     */
+    public static function isCartCartShipmentReady(): bool
+    {
+        if (!WC()->cart->needs_shipping()) {
+            return true;
+        } elseif (
+            WC()->cart->show_shipping || ('yes' === get_option('woocommerce_enable_shipping_calc'))
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
