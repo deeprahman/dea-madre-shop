@@ -12,6 +12,8 @@ abstract class Page
 
     protected $pageName;
 
+    private $ajaxParams;
+
     protected function initialize($page_name)
     {
         $this->setPageName($page_name);
@@ -87,5 +89,49 @@ abstract class Page
     protected function removeWooCommerceStyles()
     {
         add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+    }
+
+    /**
+     * Sets the ajax params
+     *
+     * @param string $action_name   The name of the ajax action to be triggered
+     * @param string $nonce_identifier the name to be used for creating nonce
+     * @param array $callback   the method to be called when the ajax action gets triggered
+     * @return self
+     */
+    protected function setAjaxParams(string $action_name, string $nonce_identifier, array $callback): self
+    {
+        $this->ajaxParams = [
+            'action_name' => $action_name,
+            'nonce_identifier' => $nonce_identifier,
+            'callback' => $callback
+        ];
+        return $this;
+    }
+
+    /**
+     * Gets the value of the ajaxParams property
+     *
+     * @return array
+     */
+    protected function getAjaxParams(): array
+    {
+        return $this->ajaxParams;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string|null $js_object
+     * @return void
+     */
+    public function sendNonceToJsFile(string $js_object = null)
+    {
+        $js_object = ($js_object) ?: $this->pageName . 'Object';
+        $nonce = wp_create_nonce($this->getAjaxParams()['nonce_identifier']);
+        $is_localized =        wp_localize_script('dea-madre-js', $js_object, ['nonce' => $nonce]);
+        if (!$is_localized) {
+            return new WP_Error(500, "Script Localization Failed");
+        }
     }
 }

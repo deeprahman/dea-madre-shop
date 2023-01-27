@@ -13,64 +13,52 @@ class DM_Shop_Page extends Page
 
     public function __construct()
     {
-        $this->setPL(['limit'=> -1]);
+        $this->setPL(['limit' => -1]);
         $this->initialize('shop');
-        $this->setParams()->handleAjax($this->getParams());
+        $this->setParams()->handleAjax($this->getAjaxParams());
 
-        add_action('wp_enqueue_scripts', [$this,'sendNonceToJsFile'],20);
+        add_action('wp_enqueue_scripts', [$this, 'sendNonceToJsFile'], 20);
     }
 
-    protected function setPageName(string $page_name):self{
+    protected function setPageName(string $page_name): self
+    {
         $this->pageName = $page_name;
         return $this;
     }
 
-    private function setPL($params = null){
+    private function setPL($params = null)
+    {
         require_once INC_DIR . DIRECTORY_SEPARATOR . "class-product-list.php";
         $this->PL = new DM_Product_List($params);
     }
-    public function getPL():DM_Product_List{
+    public function getPL(): DM_Product_List
+    {
         return $this->PL;
     }
+
     public static function init()
     {
         new self();
     }
+    
     private function setParams()
     {
-        $this->params = [
-            'action_name' => 'shop_data',
-            'nonce_identifier' => 'shop_data_nonce',
-            'callback' => [$this, 'getProductData']
-        ];
+
+        $this->setAjaxParams('shop_data', 'shop_data_nonce', [$this, 'getProductData']);
         return $this;
     }
 
-    private function getParams(): array
-    {
-        return $this->params;
-    }
-
-
     public function getProductData()
     {
-
         // The nonce
-        $tmp =check_ajax_referer(
-            $this->getParams()['nonce_identifier'],
+        check_ajax_referer(
+            $this->getAjaxParams()['nonce_identifier'],
             'nonce'
         );
-       $products = $this->getPL()->getProducts();
+        $products = $this->getPL()->getProducts();
 
         wp_send_json_success($products);
     }
 
-    public function sendNonceToJsFile(){
 
-        $nonce = wp_create_nonce($this->getParams()['nonce_identifier']);
-        $is_localized =        wp_localize_script('dea-madre-js', 'shopObject', ['nonce' => $nonce]);
-        if(! $is_localized){
-            return new WP_Error(500, "Script Localization Failed");
-        }
-    }
 }

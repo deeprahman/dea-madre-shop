@@ -56,21 +56,20 @@
     <div class="row mb-3">
         <div class="col">
             <h3 class="text-muted">
-
                 <?php esc_html_e('Next steps', 'deamadre'); ?>
             </h3>
         </div>
     </div>
 
     <ol class="list-group list-group-numbered text-muted">
-        <li class=" d-flex justify-content-between align-items-start mb-3">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold"><?php esc_html_e('Shipping options', 'deamadre'); ?></div>
-                <?php esc_html_e('Select how to receive your order.', 'deamadre') ?>
-            </div>
-
-        </li>
-
+        <?php if (!DM_Utilities::isCartShipmentReady()) : ?>
+            <li class=" d-flex justify-content-between align-items-start mb-3">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold"><?php esc_html_e('Shipping options', 'deamadre'); ?></div>
+                    <?php esc_html_e('Select how to receive your order.', 'deamadre') ?>
+                </div>
+            </li>
+        <?php endif; ?>
         <li class=" d-flex justify-content-between align-items-start mb-3">
             <div class="ms-2 me-auto">
                 <div class="fw-bold"><?php esc_html_e('Payment Information', 'deamadre'); ?></div>

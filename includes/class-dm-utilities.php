@@ -83,7 +83,7 @@ final class DM_Utilities
      *
      * @return bool
      */
-    public static function isCartCartShipmentReady(): bool
+    public static function isCartShipmentReady(): bool
     {
         if (!WC()->cart->needs_shipping()) {
             return true;

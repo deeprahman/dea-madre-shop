@@ -1,2 +1,363 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta page-name="shop"><title>webpack Boilerplate</title><link href="dist/css/main.min.css" rel="stylesheet"></head><body><header class=""><div class="top d-none d-lg-flex flex-row justify-content-between align-items-center bg-primary text-light"><div role="logo" class="ms-5 me-0 my-3"><div class="logo" role="logo"></div></div><div id="top-contact" class="d-flex gap-3 flex-column justify-content-center align-items-center"><span class="fs-3">Forniture Coffe & Beverage</span> <a class="btn btn-outline-light rounded-pill contact-btn" href="#">Contact</a></div><dov id="user-info" class="ms-0 me-5 my-3 d-flex flex-row align-items-center"><div><i class="bi bi-cart text-white fs-4"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-4">0</span></div><div class="ms-3"><i class="bi bi-person-fill text-white fs-1"></i></div><div class="ms-3"><i class="bi bi-facebook fs-1"></i></div></dov></div></header><nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary text-light align-items-center justify-content-between mb-0 pb-0"><button class="navbar-toggler ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> <a class="ms-5 ms-lg-0 navbar-brand navbar-toggler" href="#" data-bs-toggle="collapse"><span class="logo d-block"></span></a><div class="navbar-brand navbar-toggler" data-bs-toggle="collapse"><i class="bi bi-cart text-white fs-5"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-5">0</span></div><div class="collapse navbar-collapse bg-secondary fw-normal fs-5 ps-2" id="navbarSupportedContent"><ul class="navbar-nav mx-auto"><li class="nav-item mt-3 d-inline d-lg-none mb-4"><div class="search pe-2"><i class="bi bi-search text-dark fw-bold fs-4"></i> <input class="form-control rounded-pill fw-normal fs-4" placeholder="Search"></div></li><li class="nav-item"><a href="#" class="nav-link">Home</a></li><li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a><ul class="dropdown-menu"><li><a href="#" class="dropdown-item">SubMenu</a></li><li><a href="#" class="dropdown-item">SubMenu</a></li><li><a href="#" class="dropdown-item">SubMenu</a></li></ul></li><li class="nav-item dropdown"><a href="" class="nav-link dropdown-toggle" data-bs-auto-close="outside" href="#" data-bs-toggle="dropdown">Shop</a><ul class="dropdown-menu"><li class="dropend"><a class="dropdown-item dropdown-toggle" href="#">Wine</a><ul class="submenu dropdown-menu"><li><a class="dropdown-item" href="#">sub-submenu</a></li><li><a class="dropdown-item" href="#">Sub-submenu</a></li></ul></li><li><a class="dropdown-item" href="#">Submenu</a></li><li><a class="dropdown-item" href="#">Submenu</a></li></ul></li><li class="nav-item"><a href="#" class="nav-link">Contacts</a></li><li class="nav-item mt-3 d-inline d-lg-none"><a href="#" class="nav-link not-highlight"><i class="bi bi-cart-fill"></i>&nbsp; <span>0</span></a></li><li class="nav-item d-inline d-lg-none"><a href="#" class="nav-link not-highlight link-light text-decoration-underline">My Account</a></li></ul></div></nav><div class="banner"><div class="banner-shade"></div><div class="shop-cta d-flex flex-column align-items-center"><p class="fs-1 fw-1 text-light">Online Wine Sales</p><div><a class="btn btn-outline-light rounded-pill shop-btn" href="#">Wine Shop</a></div></div><div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><div id="carousel-img-1" class="d-block img-size"></div></div><div class="carousel-item"><div id="carousel-img-2" class="d-block d-block img-size"></div></div><div class="carousel-item"><div id="carousel-img-3" class="d-block d-block img-size"></div></div><div class="carousel-item"><div id="carousel-img-4" class="d-block d-block img-size"></div></div></div></div><a href="#" class="shop-decor__link"><svg width="241px" height="39px" viewBox="0 0 241 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="1051936929" class="svg u_1051936929" data-icon-custom="true" data-icon-name="vector_path_white.svg" data-hover-effect="zoomout" alt="icona freccia"><title>Combined Shape Copy</title><desc>Created with Sketch.</desc><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M1.56319402e-13,39 C80.5,39 80.5,-2.89412038e-13 120.5,-1.0658141e-14 C157,-1.0658141e-14 167,39 241,39 C172,39 72,39 1.56319402e-13,39 Z M112.56,12.81 L110.13,15.24 L120.66,25.77 L131.19,15.24 L128.76,12.81 L120.66,20.91 L112.56,12.81 Z" id="Combined-Shape-Copy" fill="#FFFFFF" fill-rule="nonzero"></path></g></svg></a></div><section id="product-cats"><div class="container py-5"><div class="row row-cols-1 row-cols-lg-3 g-3"><div class="col d-inline-flex justify-content-center"><a href="#" aria-label="Go to the beverage product"><div class="procudt-cats__beverage product"><picture class=""><source><img class="img-fluid" src="#" alt="beverage"></picture></div></a></div><div class="col d-inline-flex justify-content-center"><a href="#" aria-label="Go to the Wine products"><div class="procudt-cats__wines product"><picture class=""><source><img class="img-fluid" src="#" alt="wines"></picture></div></a></div><div class="col d-inline-flex justify-content-center"><a href="#" aria-label="Go to the Cafeteria"><div class="procudt-cats__cafeteria product"><picture class=""><source><img class="img-fluid" src="#" alt="cafeteria"></picture></div></a></div></div></div><div class="row row-cols-1 justify-content-center py-0 py-lg-3"><div class="col divider d-none d-lg-block"></div></div></section><div class="product-wine my-3"><div class="row row-cols-1"><div class="col text-center"><h2><span>Wines</span></h2><p class="lead">di seguito una selezione dei nostri prodotti</p></div></div><div class="products-wine-on-small-devices d-block d-lg-none"><div class="container-fluid"></div></div><div class="products-wine-on-large-devices d-none d-lg-block"><div class="container-fluid"></div></div><div class="container justify-content-center d-flex"><div class="tetxt-center"><a id="btn-wine" href="#" class="fs-3">Show More</a></div></div></div><div class="product-beverage my-3"><div class="row row-cols-1"><div class="col text-center"><h2><span>The Beverage</span></h2><p class="lead">Below is a selection of our products</p></div></div><div class="products-beverage-on-small-devices d-block d-lg-none"><div class="container-fluid"></div></div><div class="products-beverage-on-large-devices d-none d-lg-block"><div class="container-fluid"></div></div><div class="container justify-content-center d-flex"><div class="tetxt-center"><a id="btn-beverage" href="#" class="fs-3">Show More</a></div></div></div><div id="subscribers-section" class="mt-5"><div class="subscriber-section__background"></div><div class="container-fluid"><div class="row g-3"><div class="col-12 col-lg-6 mt-5 mb-md-5"><p class="text-white fs-3">Iscriviti alla nostra newsletter per ricevere offerte e promozioni</p></div><div class="col-12 col-lg-6 pt-1 pe-0 pt-lg-5 pe-lg-5"><form class="row g-3 bg-primary mt-lg-5 p-lg-5 rounded"><div class="col-md-6 px-md-3"><label for="inputEmail4" class="form-label text-light">Name & Surname</label> <input class="form-control form-input" id="inputEmail4"></div><div class="col-md-6 px-md-3"><label for="inputPassword4" class="form-label text-light">Email</label> <input type="email" class="form-control form-input" id="inputPassword4"></div><div class="col-12 col-lg-7 m-1 mt-lg-3 pt-1 pt-lg-2 px-md-3 p-md-5"><div class="form-check"><input class="form-check-input" type="checkbox" id="gridCheck"> <label class="form-check-label text-light bg-primary" for="gridCheck">I have read the information and authorize the processing of my personal data for the purposes indicated therein</label></div></div><div class="col-6 my-0 mt-lg-5 py-0 pt-lg-5 pb-3"><button type="submit" class="btn btn-outline-secondary rounded-pill contact-btn text-light">Sign in</button></div></form></div></div></div></div><div id="company-description" class="bg-primary pattern p-5"><div class="container-fluid"><div class="row py-5"><div class="col-2 d-none d-lg-block"></div><div class="col-12 col-lg-8"><div class="text-center lead bg-secondary p-5 rounded"><p>Dea Madre Coffee & Beverage è un’azienda operante nel settore della distribuzione e vendita di caffè in grani e in monoporzioni compatibili, birre artigianali, vini nazionali e internazionali, liquori, distillati, spritz e snack, per il settore Ho.Re.Ca. L'azienda, attraverso un lavoro professionale e attento, basato sulla trasparenza, un'ampia offerta di prodotti, la grande disponibilità del personale e i prezzi convenienti ha saputo affermarsi su tutto il territorio della provincia di Sassari e dell'Alta Gallura.</p><p>Uno dei prodotti di punta dell’azienda è il caffè, venduto al dettaglio o all'ingrosso con l’ausilio di attrezzature e merchandising e un servizio di assistenza su tutte le attrezzature concesse in comodato d’uso. Per poter offrire una categoria più ampia di prodotti ci occupiamo della distribuzione di alcune aziende produttrici di vino e di birre artigianali creando di fatto un contatto diretto tra azienda produttrice e cliente.</p></div></div><div class="col-2 d-none d-lg-block"></div></div></div></div><div id="shop-contact-section"><div class="container"><div class="row row-cols-1 row-cols-lg-2"><div class="col d-none d-lg-block"></div><div class="col"><div class="contact bg-primary p-3 my-5 rounded"><div class="icon mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="1898721580" class="svg u_1898721580" data-icon-name="li_open_envelope" alt="Icona – Email"><path d="M50,19.6L19.7,39.8v40.6h60.7V39.8L50,19.6z M77.6,40.3l-7,4.7v-5.7H29.5V45l-7-4.7L50,21.9L77.6,40.3z M68.6,46.3L50,58.7
-	L31.4,46.3v-5h37.2V46.3z M21.6,78.5V42.1L50,61.1l28.4-18.9v36.3H21.6z"></path></svg></div><p class="text-light lead mb-4">Contattaci per maggiori informazioni sui prodotti del nostro shop!</p><div class="mb-3"><a href="#" class="btn btn-outline-light contact-btn rounded-pill">Discover the Proposal</a></div></div></div></div></div></div><footer class="bg-danger dg-danger"><div class="container-fluid"><div class="row row-cols-1 bg-secondary"><div class="col-12 col-lg-8 offset-lg-2"><div id="physical-contact" class="text-center pt-1 pt-md-3"><h5>DEA MADRE COFFEE & BEVERAGE</h5><p>Viale Sardegna, 241 – 07030 Santa Maria Coghinas (SS)</p><p class="h5">+39 079 0976660 | +39 349 8185292 | deamadre.gm@gmail.com</p><p>P.I. 02731260903 | Informazioni Legali | Privacy Policy e Cookie Policy</p></div></div></div><div class="row"><div class="col-12 col-lg-8 text-light offset-lg-2 text-center"><span class="">Designed by Italiaonline | Questa azienda è presente anche su</span></div></div></div></footer><script defer="defer" src="dist/js/main.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta page-name="shop">
+
+    <title>
+        webpack Boilerplate
+    </title>
+<link href="dist/css/main.min.css" rel="stylesheet"></head>
+
+<body>
+
+    <header class="">
+        <div class="top d-none  d-lg-flex flex-row justify-content-between align-items-center bg-primary text-light">
+    <div role="logo" class="ms-5 me-0 my-3">
+
+        <div class="logo" role="logo"></div>
+    </div>
+    <div id="top-contact" class="d-flex gap-3 flex-column justify-content-center align-items-center">
+        <span class="fs-3">Forniture Coffe & Beverage</span>
+        <a class="btn btn-outline-light rounded-pill contact-btn" href="#">Contact</a>
+    </div>
+    <dov id="user-info" class="ms-0 me-5 my-3 d-flex flex-row align-items-center">
+        <div><i class="bi bi-cart text-white fs-4"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-4">0</span></div>
+        <div class="ms-3"><i class="bi bi-person-fill text-white fs-1"></i></div>
+        <div class="ms-3"><i class="bi bi-facebook fs-1"></i></div>
+    </dov>
+</div>
+    </header>
+    <nav class="navbar sticky-top  navbar-expand-lg navbar-dark bg-primary text-light align-items-center justify-content-between mb-0 pb-0">
+    <!-- <div class="container-fluid"> -->
+        <button class="navbar-toggler ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="ms-5 ms-lg-0 navbar-brand navbar-toggler" href="#" data-bs-toggle="collapse">
+            <span class="logo d-block"></span>
+        </a>
+        <div class="navbar-brand navbar-toggler" data-bs-toggle="collapse">
+            <i class="bi bi-cart text-white fs-5"></i>&nbsp;&nbsp;<span id="cart-item-num" class="fs-5">0</span>
+        </div>
+
+
+        <div class=" collapse navbar-collapse bg-secondary fw-normal fs-5 ps-2" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <!-- Search bar on SM devices -->
+                <li class=" nav-item mt-3 d-inline d-lg-none mb-4">
+                     <div class="search pe-2">
+                          <i class="bi bi-search text-dark fw-bold fs-4"></i>
+                          <input type="text" class="form-control rounded-pill fw-normal fs-4" placeholder="Search">
+                         
+                        </div>
+                </li>
+                <!-- Home -->
+                <li class=" nav-item"><a href="#" class="nav-link">Home</a></li>
+                <!-- Products  -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                        <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                    </ul>
+                </li>
+                <!-- Shop -->
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-bs-auto-close="outside" href="#"
+                        data-bs-toggle="dropdown">Shop</a>
+                    <!-- Submenu -->
+                    <ul class="dropdown-menu">
+                        <!-- WIne -->
+                        <li class="dropend">
+                            <a class="dropdown-item dropdown-toggle" href="#"> Wine</a>
+                            <!-- Sub-Submenu -->
+                            <ul class="submenu dropdown-menu">
+                                <li><a class="dropdown-item" href="#"> sub-submenu </a></li>
+                                <li><a class="dropdown-item" href="#"> Sub-submenu </a></li>
+                            </ul>
+                        </li>
+                        <!-- Beverage -->
+                        <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                        <!-- Cafeteria -->
+                        <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                    </ul>
+                </li>
+                <!-- Contacts -->
+                <li class=" nav-item"><a href="#" class="nav-link ">Contacts</a></li>
+                <!-- Others on small devies -->
+                <li class="nav-item mt-3 d-inline d-lg-none"><a href="#" class="nav-link not-highlight">
+                    <i class="bi bi-cart-fill"></i>&nbsp;
+                    <span>0</span>
+                </a></li>
+                <li class="nav-item d-inline d-lg-none"><a href="#" class="nav-link not-highlight link-light text-decoration-underline">
+                    My Account
+                </a></li>
+
+            </ul>
+            
+
+
+        </div>
+    <!-- </div> -->
+</nav>
+
+
+        <!-- Banner section -->
+        <div class="banner">
+  <div class="banner-shade"></div>
+  <div class="shop-cta d-flex flex-column align-items-center">
+    <p class="fs-1 fw-1 text-light">Online Wine Sales</p>
+    <div><a class="btn btn-outline-light rounded-pill shop-btn" href="#">Wine Shop</a></div>
+  </div>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <div id="carousel-img-1" class="d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+
+        <div id="carousel-img-2" class="d-block d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+        <div id="carousel-img-3" class="d-block d-block img-size"></div>
+      </div>
+      <div class="carousel-item">
+        <div id="carousel-img-4" class="d-block d-block img-size"></div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="shop-decor__link">
+    <svg width="241px" height="39px" viewBox="0 0 241 39" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" id="1051936929" class="svg u_1051936929" data-icon-custom="true"
+      data-icon-name="vector_path_white.svg" data-hover-effect="zoomout"
+      alt="icona freccia"><!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+      <title>Combined Shape Copy</title>
+      <desc>Created with Sketch.</desc>
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path
+          d="M1.56319402e-13,39 C80.5,39 80.5,-2.89412038e-13 120.5,-1.0658141e-14 C157,-1.0658141e-14 167,39 241,39 C172,39 72,39 1.56319402e-13,39 Z M112.56,12.81 L110.13,15.24 L120.66,25.77 L131.19,15.24 L128.76,12.81 L120.66,20.91 L112.56,12.81 Z"
+          id="Combined-Shape-Copy" fill="#FFFFFF" fill-rule="nonzero"></path>
+      </g>
+    </svg>
+  </a>
+
+</div>
+
+            <!-- Product-category section -->
+
+            <section id="product-cats">
+    <div class="container py-5">
+        <div class="row row-cols-1 row-cols-lg-3 g-3">
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the beverage product">
+                <div class="procudt-cats__beverage product">
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="beverage">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the Wine products">
+                <div class="procudt-cats__wines product">
+
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="wines">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+            <div class="col d-inline-flex justify-content-center">
+                <a href="#" aria-label="Go to the Cafeteria">
+                <div class="procudt-cats__cafeteria product">
+
+    
+                        <picture class="">
+                            <source>
+                            <img class="img-fluid" src="#" alt="cafeteria">
+                        </picture>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 justify-content-center py-0 py-lg-3 ">
+        <div class="col divider d-none d-lg-block">
+
+        </div>
+    </div>
+</section>
+                <!-- Product-wine section -->
+
+                <div class="product-wine my-3">
+    <div class="row row-cols-1">
+        <div class="col text-center">
+            <h2>
+                <span>Wines</span>
+            </h2>
+            <p class="lead">di seguito una selezione dei nostri prodotti</p>
+        </div>
+    </div>
+    <!-- On small devices -->
+    <div class="products-wine-on-small-devices d-block  d-lg-none">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <!-- On Large devices -->
+    <div class="products-wine-on-large-devices d-none d-lg-block">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <div class="container justify-content-center d-flex">
+        <div class="tetxt-center">
+            <a id="btn-wine" href="#" class="fs-3">Show More</a>
+        </div>
+    </div>
+</div>
+
+                    <!-- Product-beverage section -->
+
+                    <div class="product-beverage my-3">
+    <div class="row row-cols-1">
+        <div class="col text-center">
+            <h2>
+                <span>The Beverage</span>
+            </h2>
+            <p class="lead">Below is a selection of our products</p>
+        </div>
+    </div>
+    <!-- On small devices -->
+    <div class="products-beverage-on-small-devices d-block  d-lg-none">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <!-- On Large devices -->
+    <div class="products-beverage-on-large-devices d-none d-lg-block">
+        <div class="container-fluid">
+
+        </div>
+    </div>
+    <div class="container justify-content-center d-flex">
+        <div class="tetxt-center">
+            <a id="btn-beverage" href="#" class="fs-3">Show More</a>
+        </div>
+    </div>
+</div>
+
+                        <!-- Subscribe section -->
+
+                        <div id="subscribers-section" class="mt-5 ">
+    <div class="subscriber-section__background"></div>
+    <div class="container-fluid">
+
+        <div class="row g-3">
+            <div class="col-12 col-lg-6 mt-5 mb-md-5">
+                <p class="text-white fs-3">
+                    Iscriviti alla nostra newsletter per ricevere offerte e promozioni
+                </p>
+            </div>
+
+            <div class="col-12 col-lg-6 pt-1 pe-0 pt-lg-5 pe-lg-5">
+                <form class="row g-3 bg-primary mt-lg-5 p-lg-5 rounded ">
+                    <div class="col-md-6 px-md-3">
+                        <label for="inputEmail4" class="form-label text-light">Name & Surname</label>
+                        <input type="text" class="form-control form-input" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6 px-md-3">
+                        <label for="inputPassword4" class="form-label text-light">Email</label>
+                        <input type="email" class="form-control form-input" id="inputPassword4">
+                    </div>
+                    
+                    <div class="col-12 col-lg-7 m-1 mt-lg-3  pt-1 pt-lg-2 px-md-3 p-md-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label text-light bg-primary" for="gridCheck">
+                                I have read the information and authorize the processing of my personal data for the purposes indicated therein
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 my-0 mt-lg-5 py-0 pt-lg-5 pb-3">
+                        <button type="submit" class="btn btn-outline-secondary rounded-pill contact-btn text-light">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+                            <!-- Company Description section -->
+                            <div id="company-description" class="bg-primary pattern p-5">
+    <div class="container-fluid">
+        <div class="row py-5">
+            <div class="col-2 d-none d-lg-block"></div>
+            <div class="col-12 col-lg-8">
+                <div class="text-center lead bg-secondary p-5 rounded">
+                    <p>Dea Madre Coffee & Beverage è un’azienda operante nel settore della distribuzione e vendita di caffè in grani e in monoporzioni compatibili, birre artigianali, vini nazionali e internazionali, liquori, distillati, spritz e snack, per il settore Ho.Re.Ca. L'azienda, attraverso un lavoro professionale e attento, basato sulla trasparenza, un'ampia offerta di prodotti, la grande disponibilità del personale e i prezzi convenienti ha saputo affermarsi su tutto il territorio della provincia di Sassari e dell'Alta Gallura.</p>
+                    <p>Uno dei prodotti di punta dell’azienda è il caffè, venduto al dettaglio o all'ingrosso con l’ausilio di attrezzature e merchandising e un servizio di assistenza su tutte le attrezzature concesse in comodato d’uso. Per poter offrire una categoria più ampia di prodotti ci occupiamo della distribuzione di alcune aziende produttrici di vino e di birre artigianali creando di fatto un contatto diretto tra azienda produttrice e cliente.</p>
+                </div>
+            </div>
+            <div class="col-2 d-none d-lg-block"></div>
+        </div>
+    </div>
+</div>
+                                <!-- Contact section -->
+                                <div id="shop-contact-section">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col d-none d-lg-block"></div>
+            <div class="col">
+                <div class="contact bg-primary p-3 my-5 rounded">
+                    <div class="icon mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="1898721580" class="svg u_1898721580  " data-icon-name="li_open_envelope" alt="Icona – Email"> <path d="M50,19.6L19.7,39.8v40.6h60.7V39.8L50,19.6z M77.6,40.3l-7,4.7v-5.7H29.5V45l-7-4.7L50,21.9L77.6,40.3z M68.6,46.3L50,58.7
+	L31.4,46.3v-5h37.2V46.3z M21.6,78.5V42.1L50,61.1l28.4-18.9v36.3H21.6z"></path> 
+</svg>
+                    </div>
+                   <p class="text-light lead mb-4">Contattaci per maggiori informazioni sui prodotti del nostro shop!</p>
+                   <div class="mb-3">
+                        <a href="#" class="btn btn-outline-light contact-btn rounded-pill">Discover the Proposal</a>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                    <!-- footer section -->
+                                    
+<footer class="bg-danger dg-danger">
+    <div class="container-fluid">
+
+        <div class="row row-cols-1 bg-secondary">
+            <div class="col-12 col-lg-8 offset-lg-2">
+
+
+                <div id="physical-contact" class="text-center pt-1 pt-md-3">
+                    <h5>DEA MADRE COFFEE & BEVERAGE</h5>
+                    <p>Viale Sardegna, 241 – 07030 Santa Maria Coghinas (SS)</p>
+                    <p class="h5">+39 079 0976660 | +39 349 8185292   | deamadre.gm@gmail.com</p>
+                    <p>P.I. 02731260903 | Informazioni Legali | Privacy Policy e Cookie Policy</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 text-light offset-lg-2 text-center">
+                <span class="">Designed by Italiaonline | Questa azienda è presente anche su</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script defer src="dist/js/main.min.js"></script></body>
+
+</html>
