@@ -1,4 +1,5 @@
 import jQuery from 'jquery';
+import {AlertDisplay as AD } from './alert-display';
 
 if ('undefined' === typeof $) {
   var $ = jQuery;
@@ -28,12 +29,26 @@ function proceedToCheckout() {
       nonce: cartObject.nonce
     },
     success: function (res) {
-      console.log(res);
+      processSuccess(res);
     },
     error: function (error) {
       console.log(error);
     }
   });
+}
+
+
+function processSuccess(messageObj){
+  if(messageObj.data === 'undefined'){
+    return;
+  }
+  let alert = new AD();
+    if(! messageObj.data.cartShipmentOk){
+      alert.showAlert('Warning', "Shipment details is not configured");
+    }
+    if(! messageObj.data.isLoggedIn){
+      alert.showAlert('Warning', "User is not logged in");
+    }
 }
 
 export default cartPage;

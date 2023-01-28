@@ -39,14 +39,6 @@ if (!class_exists('DM_Cart_Page')) :
             return $this;
         }
 
-        protected function proceedToCheckout(): array
-        {
-            $res = [];
-            $res['isLoggedIn'] = is_user_logged_in();
-            $res['isCartShipmentReady'] = DM_Utilities::isCartShipmentReady();
-            return $res;
-        }
-
         private function setParams()
         {
 
@@ -63,7 +55,7 @@ if (!class_exists('DM_Cart_Page')) :
                 'nonce'
             );
             $result['cartShipmentOk'] = DM_Utilities::isCartShipmentReady();
-            $result['isLoggedIn'] = DM_Utilities::isCartShipmentReady();
+            $result['isLoggedIn'] = is_user_logged_in();
             wp_send_json_success($result);
         }
     }
