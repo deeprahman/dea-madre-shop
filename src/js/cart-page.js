@@ -1,10 +1,11 @@
 import jQuery from 'jquery';
-import {AlertDisplay as AD } from './alert-display';
+import { HandleWooMessage as HM } from "./woo-notice-handler.js"
+import { AlertDisplay as AD } from './alert-display';
 
 if ('undefined' === typeof $) {
   var $ = jQuery;
 }
-
+let sentData = Object.create(null);
 const cartPage = Object.create(null);
 
 cartPage.init = function () {
@@ -16,19 +17,19 @@ cartPage.checkBtn = $('#checkout-btn').on('click', function (e) {
   if (saleChkBox.checked) {
     proceedToCheckout();
   } else {
-    console.log('Shop button is not checked');
+    let alert = new AD();
+    alert.showAlert('Warning', "Sales terms and condition is not checked");
   }
 });
 
 function proceedToCheckout() {
   $.ajax({
     url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
-    type: 'GET',
-    data: {
-      action: 'dm_cart_confirmation',
-      nonce: cartObject.nonce
-    },
+    type: 'POST',
+    data: prepareSentData(),
     success: function (res) {
+      console.log(res);
+
       processSuccess(res);
     },
     error: function (error) {
@@ -37,18 +38,32 @@ function proceedToCheckout() {
   });
 }
 
+function getCustomerEmail() {
+  let email = $('#dm-customer-email').val();
+  if (email) {
+    sentData['email'] = email;
+  } else {
+    let alert = new AD();
+    alert.showAlert('Warning', "Email is not set");
+    throw new Error();
+  }
+}
 
-function processSuccess(messageObj){
-  if(messageObj.data === 'undefined'){
+function prepareSentData() {
+  sentData = {
+    action: 'dm_cart_confirmation',
+    nonce: cartObject.nonce
+  };
+  getCustomerEmail();
+  return sentData;
+}
+
+function processSuccess(messageObj) {
+  if (messageObj.data === 'undefined') {
     return;
   }
-  let alert = new AD();
-    if(! messageObj.data.cartShipmentOk){
-      alert.showAlert('Warning', "Shipment details is not configured");
-    }
-    if(! messageObj.data.isLoggedIn){
-      alert.showAlert('Warning', "User is not logged in");
-    }
+  let h = new HM();
+  h.process(messageObj);
 }
 
 export default cartPage;

@@ -95,4 +95,56 @@ final class DM_Utilities
             return false;
         }
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public static function registerAccountWIthEmail($email): bool|null
+    {
+
+        $username = 'no' === get_option('woocommerce_registration_generate_username') && isset($_POST['username']) ? wp_unslash($_POST['username']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $password = 'no' === get_option('woocommerce_registration_generate_password') && isset($_POST['password']) ? $_POST['password'] : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+        $email    = wp_unslash($email); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+        try {
+            $validation_error  = new WP_Error();
+            $validation_error  = apply_filters('woocommerce_process_registration_errors', $validation_error, $username, $password, $email);
+            $validation_errors = $validation_error->get_error_messages();
+
+            if (1 === count($validation_errors)) {
+                throw new Exception($validation_error->get_error_message());
+            } elseif ($validation_errors) {
+                foreach ($validation_errors as $message) {
+                    wc_add_notice('<strong>' . __('Error:', 'woocommerce') . '</strong> ' . $message, 'Error');
+                }
+                throw new Exception();
+            }
+
+            $new_customer = wc_create_new_customer(sanitize_email($email), wc_clean($username), $password);
+
+            if (is_wp_error($new_customer)) {
+                $tmp = $new_customer->get_error_message();
+                wc_add_notice($new_customer->get_error_message(), 'Error');
+                return false;
+            }
+
+            if ('yes' === get_option('woocommerce_registration_generate_password')) {
+                wc_add_notice(__('Your account was created successfully and a password has been sent to your email address.', 'woocommerce'), 'Success');
+            } else {
+                wc_add_notice(__('Your account was created successfully. Your login details have been sent to your email address.', 'woocommerce'). 'Success');
+            }
+
+            // Only redirect after a forced login - otherwise output a success notice.
+
+        } catch (Exception $e) {
+            if ($e->getMessage()) {
+                wc_add_notice('<strong>' . __('Error:', 'woocommerce') . '</strong> ' . $e->getMessage(), 'error');
+            }
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -10,7 +10,11 @@
     </p>
     <div class="cart-item-confirm__email my-3">
 
-        <input class="form-control text-muted form-control-lg" value="<?php echo wp_get_current_user()->user_email ?>" type="email" placeholder="" aria-label=".form-control-lg example">
+        <input id="dm-customer-email" class="form-control text-muted form-control-lg" value="<?php echo wp_get_current_user()->user_email ?>" type="email" placeholder="" aria-label=".form-control-lg example">
+        <?php
+
+         ?>
+
     </div>
     <div class="form-check my-3 text-muted">
         <input class="form-check-input" type="checkbox" value="" id="acceptSellsTerms">

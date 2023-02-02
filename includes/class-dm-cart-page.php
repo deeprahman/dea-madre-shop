@@ -19,7 +19,7 @@ if (!class_exists('DM_Cart_Page')) :
             $this->setParams()->handleAjax($this->getAjaxParams());
 
             add_action('wp_enqueue_scripts', [$this, 'sendNonceToJsFile'], 20);
-
+            add_filter('woocommerce_registration_error_email_exists', [$this, 'filterRegErrorEmailExists'], 10, 2);
             // exit(var_dump($this->dmCart->getCartInfo()));
         }
 
@@ -48,15 +48,34 @@ if (!class_exists('DM_Cart_Page')) :
 
         public function shouldProceedToCheckout()
         {
+            wc_clear_notices();
             $result = [];
-            // The nonce
+
             check_ajax_referer(
                 $this->getAjaxParams()['nonce_identifier'],
                 'nonce'
             );
+
             $result['cartShipmentOk'] = DM_Utilities::isCartShipmentReady();
             $result['isLoggedIn'] = is_user_logged_in();
+
+            if (!($result['isLoggedIn'] = is_user_logged_in())) {
+                wc_add_notice(__('User Is Not logged in'), 'warning');
+                if (is_email($_POST['email'])) {
+                    DM_Utilities::registerAccountWIthEmail($_POST['email']);
+                } else {
+                    wc_add_notice(__('Email is not set'), 'Warning');
+                }
+            }
+
+            $result['notice'] = wc_get_notices();
             wp_send_json_success($result);
+        }
+
+        public function filterRegErrorEmailExists($message, $email)
+        {
+            $link = "<strong>Message</strong>: Account exists please log in " . '<a href="' . get_permalink(get_page_by_title('My Account')) . '">Log In</a>';
+            return __($link, 'deamadre');
         }
     }
 
