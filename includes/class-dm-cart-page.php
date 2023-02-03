@@ -41,11 +41,11 @@ if (!class_exists('DM_Cart_Page')) :
 
         private function setParams()
         {
-
             $this->setAjaxParams('dm_cart_confirmation', 'cart_confirmation_nonce', [$this, 'shouldProceedToCheckout']);
             return $this;
         }
 
+     
         public function shouldProceedToCheckout()
         {
             wc_clear_notices();
@@ -77,6 +77,42 @@ if (!class_exists('DM_Cart_Page')) :
             $link = "<strong>Message</strong>: Account exists please log in " . '<a href="' . get_permalink(get_page_by_title('My Account')) . '">Log In</a>';
             return __($link, 'deamadre');
         }
+
+        /**
+         * Handles all requests related to shipping address form on the cart page
+         *
+         * @return void
+         */
+        public function ShippingAddressForm(){
+            // TODO: code for handling requests for displaying the shipping form
+
+            // TODO: Code for handling request for saving the shipping form
+        }
+
+        /**
+         * Handles all requests related to select on shipping method
+         *
+         * @return void
+         */
+        public function shippingMethods(){
+            // TODO: code for handling requests for displaying shipping methods
+
+            // TODO: code for handling requests for shaving shipping methods
+        }
+
+
+        /**
+         * Handle all requests related to the billing address form
+         *
+         * @return void
+         */
+        public function billingAddressForm(){
+            // TODO: Code for handling requests for displaying the billing address form
+
+            // TODO: Code for handling requests for saving billing address
+        }
+
+         
     }
 
 endif;

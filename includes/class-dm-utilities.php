@@ -155,9 +155,9 @@ final class DM_Utilities
 	public static function saveAddress() {
 		global $wp;
 
-		$nonce_value = wc_get_var( $_REQUEST['woocommerce-edit-address-nonce'], wc_get_var( $_REQUEST['_wpnonce'], '' ) ); // @codingStandardsIgnoreLine.
+		$nonce_value = wc_get_var( $_REQUEST['deamadre-edit-address-nonce'], wc_get_var( $_REQUEST['_wpnonce'], '' ) ); // @codingStandardsIgnoreLine.
 
-		if ( ! wp_verify_nonce( $nonce_value, 'woocommerce-edit_address' ) ) {
+		if ( ! wp_verify_nonce( $nonce_value, 'deamadre-edit_address' ) ) {
 			return;
 		}
 
@@ -322,9 +322,7 @@ final class DM_Utilities
 
 		$address = WC()->countries->get_address_fields($country, $load_address . '_');
 
-		// Enqueue scripts.
-		wp_enqueue_script('wc-country-select');
-		wp_enqueue_script('wc-address-i18n');
+
 
 		// Prepare values.
 		foreach ($address as $key => $field) {
@@ -345,7 +343,8 @@ final class DM_Utilities
 
         return [
             'address_type' => $load_address,
-            'address' => $address
+            'address_from' => $address,
+            'allowed_countries' => $allowed_countries
         ];
 	}
 }
