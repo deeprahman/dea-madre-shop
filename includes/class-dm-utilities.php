@@ -155,15 +155,7 @@ final class DM_Utilities
 	public static function saveAddress() {
 		global $wp;
 
-		$nonce_value = wc_get_var( $_REQUEST['deamadre-edit-address-nonce'], wc_get_var( $_REQUEST['_wpnonce'], '' ) ); // @codingStandardsIgnoreLine.
 
-		if ( ! wp_verify_nonce( $nonce_value, 'deamadre-edit_address' ) ) {
-			return;
-		}
-
-		if ( empty( $_POST['action'] ) || 'edit_address' !== $_POST['action'] ) {
-			return;
-		}
 
 		wc_nocache_headers();
 

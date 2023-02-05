@@ -45,7 +45,7 @@ if (!class_exists('DM_Cart_Page')) :
             return $this;
         }
 
-     
+
         public function shouldProceedToCheckout()
         {
             wc_clear_notices();
@@ -55,10 +55,30 @@ if (!class_exists('DM_Cart_Page')) :
                 $this->getAjaxParams()['nonce_identifier'],
                 'nonce'
             );
+            $result['newNonce'] = wp_create_nonce($this->getAjaxParams()['nonce_identifier']);
+            $action = wc_get_var($_REQUEST['cart_action'], '');
+            switch ($action) {
+                case 'shipping-form':
+                    $this->ShippingAddressForm($result);
+                    break;
+                case 'shipping-method':
+                    $this->shippingMethods($result);
+                    break;
+                case 'billing-form':
+                    $this->billingAddressForm($result);
+                    break;
+                default:
+                    $this->primaryConfirmation($result);
+            }
+            $result['notice'] = wc_get_notices();
+            wp_send_json_success($result);
+        }
 
+        private function primaryConfirmation(&$result)
+        {
             $result['cartShipmentOk'] = DM_Utilities::isCartShipmentReady();
             $result['isLoggedIn'] = is_user_logged_in();
-
+            $result['did'] = 'account-checking';
             if (!($result['isLoggedIn'] = is_user_logged_in())) {
                 wc_add_notice(__('User Is Not logged in'), 'warning');
                 if (is_email($_POST['email'])) {
@@ -66,10 +86,9 @@ if (!class_exists('DM_Cart_Page')) :
                 } else {
                     wc_add_notice(__('Email is not set'), 'Warning');
                 }
+    
             }
-
-            $result['notice'] = wc_get_notices();
-            wp_send_json_success($result);
+ 
         }
 
         public function filterRegErrorEmailExists($message, $email)
@@ -83,10 +102,18 @@ if (!class_exists('DM_Cart_Page')) :
          *
          * @return void
          */
-        public function ShippingAddressForm(){
+        public function shippingAddressForm(&$result)
+        {
+            $result['did'] = 'shipment-address-data-fetching';
+            
             // TODO: code for handling requests for displaying the shipping form
-
+            
             // TODO: Code for handling request for saving the shipping form
+        }
+
+        private function getFromData($type):array
+        {
+            return DM_Utilities::getAddressData($type);
         }
 
         /**
@@ -94,25 +121,24 @@ if (!class_exists('DM_Cart_Page')) :
          *
          * @return void
          */
-        public function shippingMethods(){
+        public function shippingMethods(&$result)
+        {
             // TODO: code for handling requests for displaying shipping methods
 
             // TODO: code for handling requests for shaving shipping methods
         }
-
 
         /**
          * Handle all requests related to the billing address form
          *
          * @return void
          */
-        public function billingAddressForm(){
+        public function billingAddressForm(&$result)
+        {
             // TODO: Code for handling requests for displaying the billing address form
 
             // TODO: Code for handling requests for saving billing address
         }
-
-         
     }
 
 endif;

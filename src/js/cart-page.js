@@ -8,9 +8,15 @@ if ('undefined' === typeof $) {
 let sentData = Object.create(null);
 const cartPage = Object.create(null);
 
-cartPage.init = function () {
-  console.log('This is the cart page');
-};
+
+
+cartPage.accountPart = $('#cart-confirm-account-part');
+cartPage.shipmentAddressPart = $('#cart-confirm-shipment-address-part');
+cartPage.billingAddressPart = $('#cart-confirm-billing-address-part');
+cartPage.shipmentRatePart = $('#cart-confirm-shipment-rate-part');
+
+
+
 cartPage.checkBtn = $('#checkout-btn').on('click', function (e) {
   e.preventDefault();
   let saleChkBox = $('#acceptSellsTerms')[0];
@@ -22,6 +28,8 @@ cartPage.checkBtn = $('#checkout-btn').on('click', function (e) {
   }
 });
 
+cartPage.currentNonce = '';
+
 function proceedToCheckout() {
   $.ajax({
     url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
@@ -29,7 +37,6 @@ function proceedToCheckout() {
     data: prepareSentData(),
     success: function (res) {
       console.log(res);
-
       processSuccess(res);
     },
     error: function (error) {
@@ -59,11 +66,51 @@ function prepareSentData() {
 }
 
 function processSuccess(messageObj) {
+
   if (messageObj.data === 'undefined') {
+    return;
+  } else if ((messageObj.data.did === 'account-checking') && (messageObj.data.notice.length === 0)) {
+    console.log('Account validated');
+    cartPage.accountPart.hide();
+    showShipmentAddress(messageObj.data);
     return;
   }
   let h = new HM();
   h.process(messageObj);
 }
 
+function showShipmentAddress(data) {
+  cartPage.shipmentAddressPart.show();
+  fetchShipmentFormData(data);
+}
+
+function fetchShipmentFormData(data) {
+  sentData = null;
+  sentData = {
+    action: 'dm_cart_confirmation',
+    nonce: data.newNonce,
+    cart_action: 'shipping-form'
+  };
+
+  $.ajax({
+    url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
+    type: 'GET',
+    data: sentData,
+    success: function (res) {
+      console.log(res);
+    },
+    error: function (error) {
+      console.warning(error);
+    }
+  });
+}
+
+//========================================================
+cartPage.init = function () {
+  console.log('This is the cart page');
+  cartPage.accountPart = $('#cart-confirm-account-part').show(); // TODO: change to how
+  cartPage.shipmentAddressPart.hide(); // TODO: change to hide 
+  cartPage.billingAddressPart.hide();
+  cartPage.shipmentRatePart.hide();
+};
 export default cartPage;

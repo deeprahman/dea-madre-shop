@@ -2,6 +2,12 @@
 
 <?php get_template_part('includes/template-parts/cart/cart-confirm-account-part.htm');?>
 
+<?php get_template_part('includes/template-parts/cart/cart-confirm-shipment.htm');?>
+
+<?php get_template_part('includes/template-parts/cart/cart-confirm-select-shipment-rate.htm'); ?>
+
+<?php  get_template_part('includes/template-parts/cart/cart-confirm-billing.htm'); ?>
+
 <section class="info-for-next-steps">
     <div class="row mb-3">
         <div class="col">

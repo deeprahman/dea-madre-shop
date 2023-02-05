@@ -135,16 +135,17 @@ abstract class Page
         }
     }
 
-       /**
-         * Registers the Ajax handlers
-         *
-         * @param array<array> $params  [ ['action' => `action name`, 'nonce_name' => `nonce name`, 'handler' => `array`] ]
-         * @return void
-         */
-        protected function registerAjaxHandlers(array $params){
-            foreach($params as $param){
-                $this->setAjaxParams($param['action'], $param['nonce_name'], $param['handler']);
-                $this->handleAjax($this->getAjaxParams());
-            }
+    /**
+     * Registers the Ajax handlers
+     *
+     * @param array<array> $params  [ ['action' => `action name`, 'nonce_name' => `nonce name`, 'handler' => `array`] ]
+     * @return void
+     */
+    protected function registerAjaxHandlers(array $params)
+    {
+        foreach ($params as $param) {
+            $this->setAjaxParams($param['action'], $param['nonce_name'], $param['handler']);
+            $this->handleAjax($this->getAjaxParams());
         }
+    }
 }
