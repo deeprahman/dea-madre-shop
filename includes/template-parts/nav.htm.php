@@ -22,7 +22,7 @@
                 </div>
             </li>
             <!-- Home -->
-            <li class=" nav-item"><a href="<?php echo get_permalink(get_page_by_title( 'Home' ));?>" class="nav-link">Home</a></li>
+            <li class=" nav-item"><a href="<?php echo get_permalink(get_page_by_title('Home')); ?>" class="nav-link">Home</a></li>
             <!-- Products  -->
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a>
@@ -37,7 +37,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Shop</a>
                 <!-- Submenu -->
                 <ul class="dropdown-menu">
-                    <li> <a class="dropdown-item" href="<?php echo get_permalink(get_page_by_title( 'Shop' ));?>">Our Shop</a></li>
+                    <li> <a class="dropdown-item" href="<?php echo get_permalink(get_page_by_title('Shop')); ?>">Our Shop</a></li>
                     <!-- WIne -->
                     <li class="dropend">
                         <a class="dropdown-item dropdown-toggle" href="#"> Wine</a>

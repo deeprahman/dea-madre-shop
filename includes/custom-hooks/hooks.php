@@ -1,4 +1,6 @@
 <?php
+add_filter( 'nav_menu_link_attributes', ['DM_Hook_Methods', 'prefix_bs5_dropdown_data_attribute'], 20, 3 );
+add_action( 'after_setup_theme', ['DM_Hook_Methods','register_navwalker'] );
 
 
 

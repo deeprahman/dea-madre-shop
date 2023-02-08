@@ -37,7 +37,7 @@ final class DM_Dea_Madre
 
     public function main()
     {
-
+        $this->registerNavMenu();
         add_action('after_switch_theme', [$this, 'necessaryPages'], 10); // Create pages at theme activation
         add_action('after_setup_theme', [$this, 'changeToPrettyPermalinks'], 20);
         add_action('parse_request', [$this, 'pageClassLoader'], 10);  // Load Classes as per request
@@ -85,7 +85,7 @@ final class DM_Dea_Madre
             return new WP_Error(404, 'file ' . $full_file_name . ' not found');
         }
         require_once $full_file_name;
-        $page = preg_replace('/-/','_',$page)?:$page;
+        $page = preg_replace('/-/', '_', $page) ?: $page;
         $page_name = ucwords($page, '_');
         $class_name = 'DM_' . $page_name . '_Page';
         return new $class_name();
@@ -122,5 +122,12 @@ final class DM_Dea_Madre
         global $wp_rewrite;
         $wp_rewrite->set_permalink_structure('/%postname%/');
         $wp_rewrite->flush_rules();
+    }
+
+    private function registerNavMenu()
+    {
+        register_nav_menus(array(
+            'primary' => __('Dea Madre Menu', 'deamadre'),
+        ));
     }
 }
