@@ -1,6 +1,7 @@
 import jQuery from 'jquery';
 import { HandleWooMessage as HM } from "./woo-notice-handler.js"
 import { AlertDisplay as AD } from './alert-display';
+import { FormCreator as FC } from './woo-form-creator.js'
 
 if ('undefined' === typeof $) {
   var $ = jQuery;
@@ -8,7 +9,7 @@ if ('undefined' === typeof $) {
 let sentData = Object.create(null);
 const cartPage = Object.create(null);
 
-
+cartPage.newNonce = cartObject.nonce;
 
 cartPage.accountPart = $('#cart-confirm-account-part');
 cartPage.shipmentAddressPart = $('#cart-confirm-shipment-address-part');
@@ -37,13 +38,23 @@ function proceedToCheckout() {
     data: prepareSentData(),
     success: function (res) {
       console.log(res);
+      setNewNonce(res);
       processSuccess(res);
     },
     error: function (error) {
-      console.log(error);
+      console.warn(error);
     }
   });
 }
+
+function setNewNonce(obj){
+  cartPage.newNonce = obj.data.newNonce || (console.log('No New Nonce returned'));
+}
+
+function getNewNonce(){
+  return cartPage.newNonce;
+}
+
 
 function getCustomerEmail() {
   let email = $('#dm-customer-email').val();
@@ -59,7 +70,8 @@ function getCustomerEmail() {
 function prepareSentData() {
   sentData = {
     action: 'dm_cart_confirmation',
-    nonce: cartObject.nonce
+    cart_action: 'account-check',
+    nonce: cartPage.newNonce
   };
   getCustomerEmail();
   return sentData;
@@ -97,12 +109,60 @@ function fetchShipmentFormData(data) {
     type: 'GET',
     data: sentData,
     success: function (res) {
-      console.log(res);
+      setNewNonce(res);
+
+
+      cartPage.FC = new FC(
+        res.data.address_data.address_form,
+        res.data.address_data.allowed_countries,
+        res.data.address_data.address_type
+      );
+
+
+      $('#cart-confirm-shipment-form').prepend(cartPage.FC.init().getForm());
+      cartPage.FC.triggerForChangesInCountry(
+        changeInCountryHandler, 'select[name="shipping_country"]'
+      );
     },
     error: function (error) {
-      console.warning(error);
+      console.warn(error);
     }
   });
+}
+
+function changeInCountryHandler(e) {
+  let country = $(this).children('option:selected').val();
+  console.log('The selected country: ' + country);
+  fetchStatesForACountry(country,(res)=>{
+    console.log("State Updated", res);
+  });
+}
+
+
+
+function fetchStatesForACountry(country_code, handler) {
+  sentData = null;
+  sentData = {
+    action: 'dm_cart_confirmation',
+    nonce: getNewNonce(),
+    cart_action: 'states-for-country',
+    countryCode: country_code
+  };
+  $.ajax(
+    {
+       url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
+       type: 'GET',
+       data: sentData,
+       success: function(res){
+        setNewNonce(res);
+        console.log(res);
+        handler(res);
+       },
+       error:function(error){
+        console.warn(error.responseText);
+       }
+    }
+  );
 }
 
 //========================================================

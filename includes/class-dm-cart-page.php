@@ -58,8 +58,14 @@ if (!class_exists('DM_Cart_Page')) :
             $result['newNonce'] = wp_create_nonce($this->getAjaxParams()['nonce_identifier']);
             $action = wc_get_var($_REQUEST['cart_action'], '');
             switch ($action) {
+                case 'account-check':
+                    $this->primaryConfirmation($result);
+                    break;
                 case 'shipping-form':
                     $this->ShippingAddressForm($result);
+                    break;
+                case 'states-for-country':
+                    $this->fetchStatesNames($result);
                     break;
                 case 'shipping-method':
                     $this->shippingMethods($result);
@@ -68,7 +74,11 @@ if (!class_exists('DM_Cart_Page')) :
                     $this->billingAddressForm($result);
                     break;
                 default:
-                    $this->primaryConfirmation($result);
+                    wp_send_json_error(
+                        esc_html_e('Unknown Action', 'deamadre'),
+                        404
+                    );
+                    exit;
             }
             $result['notice'] = wc_get_notices();
             wp_send_json_success($result);
@@ -86,9 +96,7 @@ if (!class_exists('DM_Cart_Page')) :
                 } else {
                     wc_add_notice(__('Email is not set'), 'Warning');
                 }
-    
             }
- 
         }
 
         public function filterRegErrorEmailExists($message, $email)
@@ -105,13 +113,14 @@ if (!class_exists('DM_Cart_Page')) :
         public function shippingAddressForm(&$result)
         {
             $result['did'] = 'shipment-address-data-fetching';
-            
+            $result['address_data'] = $this->getFormData('shipping');
+
             // TODO: code for handling requests for displaying the shipping form
-            
+
             // TODO: Code for handling request for saving the shipping form
         }
 
-        private function getFromData($type):array
+        private function getFormData($type): array
         {
             return DM_Utilities::getAddressData($type);
         }
@@ -138,6 +147,21 @@ if (!class_exists('DM_Cart_Page')) :
             // TODO: Code for handling requests for displaying the billing address form
 
             // TODO: Code for handling requests for saving billing address
+        }
+
+        private function fetchStatesNames(&$result)
+        {
+            if (!isset($_REQUEST['countryCode'])) {
+                wp_send_json_error(
+                    esc_html_e('countryCode field is not set', 'deamadre'),
+                    404
+                );
+                exit;
+            }
+         
+            $result['states'] = WC()->countries->get_states(
+                sanitize_text_field($_REQUEST['countryCode'])
+            );
         }
     }
 
