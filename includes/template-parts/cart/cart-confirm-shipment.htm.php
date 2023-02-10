@@ -31,10 +31,8 @@
         </div>
         <div class="col-md-6">
             <label for="cart-page__shipping-state" class="form-label"><?php esc_html_e('State/Province', 'deamadre');?></label>
-            <select id="cart-page__shipping-state" name="shipping_country" class="form-select">
-                <option selected><?php  esc_html_e('Select  your State'); ?>.</option>
-                <option>...</option>
-            </select>
+            <input type="text" id="cart-page__shipping-state" name="shipping_state" class="form-control">
+               
         </div>
         <div class="col-md-4">
             <label for="cart-page__shipping-city" class="form-label"><?php esc_html_e('City', 'deamadre');?></label>

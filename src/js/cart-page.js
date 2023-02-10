@@ -1,6 +1,7 @@
 import jQuery from 'jquery';
 import { HandleWooMessage as HM } from "./woo-notice-handler.js"
 import { AlertDisplay as AD } from './alert-display';
+import { CartPageFormHandler as FH }  from "./cart-page-form-handler.js";
 
 
 if ('undefined' === typeof $) {
@@ -16,6 +17,7 @@ cartPage.shipmentAddressPart = $('#cart-confirm-shipment-address-part');
 cartPage.billingAddressPart = $('#cart-confirm-billing-address-part');
 cartPage.shipmentRatePart = $('#cart-confirm-shipment-rate-part');
 
+cartPage.formHandler = null;
 
 
 cartPage.checkBtn = $('#checkout-btn').on('click', function (e) {
@@ -92,8 +94,10 @@ function processSuccess(messageObj) {
 }
 
 function showShipmentAddress(data) {
-  cartPage.shipmentAddressPart.show();
+  cartPage.FH = new FH($,cartPage.shipmentAddressPart.find('form'));
+
   fetchShipmentFormData(data);
+  cartPage.shipmentAddressPart.show();
 }
 
 function fetchShipmentFormData(data) {
@@ -110,9 +114,10 @@ function fetchShipmentFormData(data) {
     data: sentData,
     success: function (res) {
       setNewNonce(res);
-      console.log(res);
+      console.log(res );
 
-
+      cartPage.FH.init(res.data.address_data.address_form, res.data.allowed_countries).processFormData();
+      cartPage.shipmentAddressPart.show();
     },
     error: function (error) {
       console.warn(error);
