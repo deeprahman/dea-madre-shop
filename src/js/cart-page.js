@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
 import { HandleWooMessage as HM } from "./woo-notice-handler.js"
 import { AlertDisplay as AD } from './alert-display';
-import { FormCreator as FC } from './woo-form-creator.js'
+
 
 if ('undefined' === typeof $) {
   var $ = jQuery;
@@ -110,19 +110,9 @@ function fetchShipmentFormData(data) {
     data: sentData,
     success: function (res) {
       setNewNonce(res);
+      console.log(res);
 
 
-      cartPage.FC = new FC(
-        res.data.address_data.address_form,
-        res.data.address_data.allowed_countries,
-        res.data.address_data.address_type
-      );
-
-
-      $('#cart-confirm-shipment-form').prepend(cartPage.FC.init().getForm());
-      cartPage.FC.triggerForChangesInCountry(
-        changeInCountryHandler, 'select[name="shipping_country"]'
-      );
     },
     error: function (error) {
       console.warn(error);
@@ -167,6 +157,7 @@ function fetchStatesForACountry(country_code, handler) {
 
 //========================================================
 cartPage.init = function () {
+
   console.log('This is the cart page');
   cartPage.accountPart = $('#cart-confirm-account-part').show(); // TODO: change to how
   cartPage.shipmentAddressPart.hide(); // TODO: change to hide 
