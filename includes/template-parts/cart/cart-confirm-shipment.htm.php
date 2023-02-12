@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-6">
             <label for="cart-page__shipping-state" class="form-label"><?php esc_html_e('State/Province', 'deamadre');?></label>
-            <input type="text" id="cart-page__shipping-state" name="shipping_state" class="form-control">
+            <input type="text" list="cart-page__state-datalist" id="cart-page__shipping-state" name="shipping_state" class="form-control">
                
         </div>
         <div class="col-md-4">
