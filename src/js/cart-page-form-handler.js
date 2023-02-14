@@ -7,6 +7,7 @@ import jQuery from 'jquery';
  */
 export function CartPageFormHandler($, fo) {
     this.fd = null;
+    this.stateObj = null;
     this.current = null; // current form data object
     this.formObject = null;
     this.stateAddressObj = null;
@@ -15,7 +16,6 @@ export function CartPageFormHandler($, fo) {
 
 
     this.init = function (formData, countries) {
-
         this.formObject = fo[0];
         this.fd = formData;
         this.countryObj = countries;
@@ -23,11 +23,11 @@ export function CartPageFormHandler($, fo) {
     };
 
     this.setStates = function(data){
-        this.states = data;
+        this.stateObj = data;
         return this;
     };
 
-    this.getStates = function(){ return this.states; };
+    this.getStates = function(){ return this.stateObj; };
 
     /**
      * 
@@ -51,8 +51,11 @@ export function CartPageFormHandler($, fo) {
                 this.setTheInputElement(self.current, self.fd[self.current]);
             }
         }
-        stateAsync(this.countryAddressObj.value).then(this.setCountryAndStateInputField).catch(
-            err => {console.warn('States data could not be fetched');}
+        const resFnc = this.setCountryAndStateInputField.bind(this)
+        stateAsync(this.countryAddressObj.value).then(
+           resFnc
+            ).catch(
+            err => {console.warn(err);}
         );
     };
 
@@ -63,9 +66,19 @@ export function CartPageFormHandler($, fo) {
     }
 
     this.setCountryAndStateInputField = function(dataObj){
-        debugger;
+    
         this.setStates(dataObj.data.states || {});
         const country_options = this.createOptionElement(this.countryObj, this.countryAddressObj.value);
+    
+        this.createSelectElement(this.countryAddressObj.name, country_options);
+        let modified_state_address = this.stateAddressObj;
+        debugger;
+        modified_state_address.value = this.getStates()[modified_state_address.value];
+        this.setTheInputElement(modified_state_address.name,modified_state_address);
+        let el = $(this.formObject).find('[name="' + this.stateAddressObj.name + '"]');
+        let id_value = el.attr('list');
+        let data_list = this.createDatalist(id_value,this.getStates(),this.stateAddressObj.value);
+        el.parent().append(data_list);
     };
 
     this.createOptionElement = function(data, selected){
@@ -86,14 +99,24 @@ export function CartPageFormHandler($, fo) {
      * @param {string} option_element   the <option> elements
      */
     this.createSelectElement = function(id_value, option_element){
-        $(this.formObject.querySelectorAll('#' + id_value)).html(option_element);
+        let id = 'cart-page__' + id_value;
+        // const el = $(this.formObject).find('#'+'cart-page__shipping-country');
+        const el = $(this.formObject).find('#'+id);
+        $(el).html(option_element);
     };
 
-    this.createDatalist = function(id, data){
+    this.createDatalist = function(id, data, selected){
         let data_list = '<datalist id="'+id+'">';
         for(let code in data){
-            data_list += '<option value='+data.code+'>';
+            if(code === selected){
+
+                data_list += '<option data-state_code="'+code+ '" value="'+data[code]+'" selected>';
+                continue
+            }
+            data_list += '<option data-state_code="'+code+ '" value="'+data[code]+'">';
         }
+        return data_list += '</datalist>';
+
     };
      
     /**
@@ -104,11 +127,9 @@ export function CartPageFormHandler($, fo) {
      * @param {*} self 
      */
      this.createInputDatalistElement = function(name, input_element_data, states, self= this){
-        self.setTheInputElement(name,input_element_data);
-        let el = $(this.formObject.querySelectorAll('[name="' + name + '"]'));
-        let id_value = el.attr('list');
-        let data_list = createDatalist(id_value,states);
-        el.next(data_list);
+      console.log(self);
+        
+        
      }
 }
 

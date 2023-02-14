@@ -94,6 +94,7 @@ function processSuccess(messageObj) {
 }
 
 function showShipmentAddress(data) {
+
   cartPage.FH = new FH($, cartPage.shipmentAddressPart.find('form'));
 
   fetchShipmentFormData(data);
@@ -115,8 +116,8 @@ function fetchShipmentFormData(data) {
     success: function (res) {
       setNewNonce(res);
 
-
-      cartPage.FH.init(res.data.address_data.address_form, res.data.allowed_countries).processFormData(fetchStatesForACountry);
+    
+      cartPage.FH.init(res.data.address_data.address_form, res.data.address_data.allowed_countries).processFormData(fetchStatesForACountry);
       let cc = res.data.address_data.address_form.shipping_country.value;
 
 

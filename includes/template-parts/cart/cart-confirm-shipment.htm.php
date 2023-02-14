@@ -23,8 +23,8 @@
             <input type="text" name="shipping_address_2" class="form-control" id="cart-page__shipping_address_2" placeholder="Apartment, studio, or floor">
         </div>
         <div class="col-md-6">
-            <label for="cart-page__shipping-country" class="form-label"><?php esc_html_e('Country', 'deamadre'); ?></label>
-            <select id="cart-page__shipping-country" name="shipping_country" class="form-select">
+            <label for="cart-page__shipping_country" class="form-label"><?php esc_html_e('Country', 'deamadre'); ?></label>
+            <select id="cart-page__shipping_country" name="shipping_country" class="form-select">
                 <option selected><?php  esc_html_e('Select  your country'); ?></option>
                 <option>...</option>
             </select>
@@ -35,11 +35,11 @@
                
         </div>
         <div class="col-md-4">
-            <label for="cart-page__shipping-city" class="form-label"><?php esc_html_e('City', 'deamadre');?></label>
+            <label for="cart-page__shipping_city" class="form-label"><?php esc_html_e('City', 'deamadre');?></label>
             <input type="text" name="shipping_city" class="form-control" id="cart-page__shipping-city">
         </div>
         <div class="col-md-4">
-            <label for="cart-page__shipping-postcode" class="form-label"><?php esc_html_e('Postcode', 'deamadre');?></label>
+            <label for="cart-page__shipping_postcode" class="form-label"><?php esc_html_e('Postcode', 'deamadre');?></label>
             <input type="text" name="shipping_postcode" class="form-control" id="cart-page__shipping-postcode">
         </div>
 
