@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
 import { HandleWooMessage as HM } from "./woo-notice-handler.js"
 import { AlertDisplay as AD } from './alert-display';
-import { CartPageFormHandler as FH }  from "./cart-page-form-handler.js";
+import { CartPageFormHandler as FH } from "./cart-page-form-handler.js";
 
 
 if ('undefined' === typeof $) {
@@ -39,7 +39,7 @@ function proceedToCheckout() {
     type: 'POST',
     data: prepareSentData(),
     success: function (res) {
-      console.log(res);
+  
       setNewNonce(res);
       processSuccess(res);
     },
@@ -49,11 +49,11 @@ function proceedToCheckout() {
   });
 }
 
-function setNewNonce(obj){
+function setNewNonce(obj) {
   cartPage.newNonce = obj.data.newNonce || (console.log('No New Nonce returned'));
 }
 
-function getNewNonce(){
+function getNewNonce() {
   return cartPage.newNonce;
 }
 
@@ -84,7 +84,7 @@ function processSuccess(messageObj) {
   if (messageObj.data === 'undefined') {
     return;
   } else if ((messageObj.data.did === 'account-checking') && (messageObj.data.notice.length === 0)) {
-    console.log('Account validated');
+
     cartPage.accountPart.hide();
     showShipmentAddress(messageObj.data);
     return;
@@ -94,7 +94,7 @@ function processSuccess(messageObj) {
 }
 
 function showShipmentAddress(data) {
-  cartPage.FH = new FH($,cartPage.shipmentAddressPart.find('form'));
+  cartPage.FH = new FH($, cartPage.shipmentAddressPart.find('form'));
 
   fetchShipmentFormData(data);
   cartPage.shipmentAddressPart.show();
@@ -114,10 +114,12 @@ function fetchShipmentFormData(data) {
     data: sentData,
     success: function (res) {
       setNewNonce(res);
-      console.log(res );
 
-      cartPage.FH.init(res.data.address_data.address_form, res.data.allowed_countries).processFormData();
-      cartPage.shipmentAddressPart.show();
+
+      cartPage.FH.init(res.data.address_data.address_form, res.data.allowed_countries).processFormData(fetchStatesForACountry);
+      let cc = res.data.address_data.address_form.shipping_country.value;
+
+
     },
     error: function (error) {
       console.warn(error);
@@ -127,15 +129,17 @@ function fetchShipmentFormData(data) {
 
 function changeInCountryHandler(e) {
   let country = $(this).children('option:selected').val();
-  console.log('The selected country: ' + country);
-  fetchStatesForACountry(country,(res)=>{
-    console.log("State Updated", res);
+
+  fetchStatesForACountry(country, (res) => {
+
   });
 }
 
 
 
-function fetchStatesForACountry(country_code, handler) {
+
+function fetchStatesForACountry(country_code) {
+
   sentData = null;
   sentData = {
     action: 'dm_cart_confirmation',
@@ -143,21 +147,17 @@ function fetchStatesForACountry(country_code, handler) {
     cart_action: 'states-for-country',
     countryCode: country_code
   };
-  $.ajax(
-    {
-       url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
-       type: 'GET',
-       data: sentData,
-       success: function(res){
-        setNewNonce(res);
-        console.log(res);
-        handler(res);
-       },
-       error:function(error){
-        console.warn(error.responseText);
-       }
-    }
-  );
+  return new Promise((resolve,reject) => {
+    $.ajax(
+      {
+        url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
+        type: 'GET',
+        data: sentData,
+        success: resolve,
+        error: reject
+      }
+    );
+  });
 }
 
 //========================================================

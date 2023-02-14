@@ -9,6 +9,9 @@ export function CartPageFormHandler($, fo) {
     this.fd = null;
     this.current = null; // current form data object
     this.formObject = null;
+    this.stateAddressObj = null;
+    this.countryAddressObj = null;
+    this.countryObj = null; // Contains list of countries
 
 
     this.init = function (formData, countries) {
@@ -26,16 +29,31 @@ export function CartPageFormHandler($, fo) {
 
     this.getStates = function(){ return this.states; };
 
-    this.processFormData = function (self = this) {
-  
+    /**
+     * 
+     * @param {callback} stateAsync  Handler for country and sate input field
+     * @param {*} self 
+     */
+    this.processFormData = function (stateAsync,self = this) {
+        const state = new RegExp(/^.+(_state)/);
+        const country = new RegExp(/^.+_(country)/);
         for (self.current in self.fd) {
-            console.log('name: ', self.current, 'data object: ', self.fd[self.current]);
+            
             if (self.fd[self.current].type) {
-
+                if(state.test(self.current)){
+                    this.stateAddressObj = self.fd[self.current];
+                    this.stateAddressObj.name = self.current; 
+                }else if(country.test(self.current)){
+                    this.countryAddressObj = self.fd[self.current];
+                    this.countryAddressObj.name = self.current;
+                }    
             } else {
                 this.setTheInputElement(self.current, self.fd[self.current]);
             }
         }
+        stateAsync(this.countryAddressObj.value).then(this.setCountryAndStateInputField).catch(
+            err => {console.warn('States data could not be fetched');}
+        );
     };
 
     this.setTheInputElement = function (name, data, self = this) {
@@ -43,6 +61,12 @@ export function CartPageFormHandler($, fo) {
         $(this.formObject.querySelectorAll('[name="' + name + '"]')).val(data.value);
         $(this.formObject.querySelectorAll('[for="cart-page__'+name+'"]')).text(data.label);;
     }
+
+    this.setCountryAndStateInputField = function(dataObj){
+        debugger;
+        this.setStates(dataObj.data.states || {});
+        const country_options = this.createOptionElement(this.countryObj, this.countryAddressObj.value);
+    };
 
     this.createOptionElement = function(data, selected){
         let options = '';
@@ -74,9 +98,9 @@ export function CartPageFormHandler($, fo) {
      
     /**
      * Interface for creating datalist element 
-     * @param {*} name 
-     * @param {*} input_element_data 
-     * @param {*} states 
+     * @param {string} name value of the name attribute of the address field 
+     * @param {object} input_element_data   Data object of the address field 
+     * @param {object} states   the state object 
      * @param {*} self 
      */
      this.createInputDatalistElement = function(name, input_element_data, states, self= this){
