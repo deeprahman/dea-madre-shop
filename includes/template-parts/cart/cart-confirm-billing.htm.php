@@ -1,4 +1,4 @@
-<section id="cart-confirm-billing-address-part">
+<section id="cart-confirm-billing-address-part" class="cart-confirmation-group">
     <h2>Billing Address</h2>
     <fieldset id="cart-page__shipping-form" class="row g-3" form="cart-confirm-checkout" action="POST">
         <div class="col-md-6">

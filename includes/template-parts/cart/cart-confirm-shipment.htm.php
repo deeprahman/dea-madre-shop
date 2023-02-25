@@ -1,4 +1,4 @@
-<section id="cart-confirm-shipment-address-part" class="ms-3 my-5">
+<section id="cart-confirm-shipment-address-part" class="cart-confirmation-group ms-3 my-5">
     <h2 class="lead"><?php esc_html_e('Shipment Address Form', 'deamadre'); ?></h2>
 
     <fieldset id="cart-page__shipping-form" class="row g-3" form="cart-confirm-checkout" action="POST">

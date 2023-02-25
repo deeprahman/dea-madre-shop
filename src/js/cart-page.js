@@ -11,14 +11,19 @@ let sentData = Object.create(null);
 const cartPage = Object.create(null);
 
 
-
 cartPage.accountPart = $('#cart-confirm-account-part');
 cartPage.shipmentAddressPart = $('#cart-confirm-shipment-address-part');
 cartPage.billingAddressPart = $('#cart-confirm-billing-address-part');
 cartPage.shipmentRatePart = $('#cart-confirm-shipment-rate-part');
 
+cartPage.btnNext = $('.go-to-next');
+cartPage.btnPrevious = $('.go-to-previous');
+cartPage.btnSubmit = $('.submit');
+
 cartPage.formHandler = null;
 
+cartPage.checkoutFormSections = $('.cart-confirmation-group');
+console.log(cartPage.checkoutFormSections);
 
 cartPage.checkBtn = $('#checkout-btn').on('click', function (e) {
   e.preventDefault();
@@ -39,7 +44,7 @@ function proceedToCheckout() {
     type: 'POST',
     data: prepareSentData(),
     success: function (res) {
-  
+
       setNewNonce(res);
       processSuccess(res);
     },
@@ -116,7 +121,7 @@ function fetchShipmentFormData(data) {
     success: function (res) {
       setNewNonce(res);
 
-    
+
       cartPage.FH.init(res.data.address_data.address_form, res.data.address_data.allowed_countries).processFormData(fetchStatesForACountry);
       let cc = res.data.address_data.address_form.shipping_country.value;
 
@@ -148,7 +153,7 @@ function fetchStatesForACountry(country_code) {
     cart_action: 'states-for-country',
     countryCode: country_code
   };
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     $.ajax(
       {
         url: dmObject.siteUrl + '/wp-admin/admin-ajax.php',
@@ -161,8 +166,47 @@ function fetchStatesForACountry(country_code) {
   });
 }
 
+cartPage.formClickEventListener = function () {
+  $(document).on('click', '#cart-confirm-shipment-address-part, #cart-confirm-billing-address-part, #cart-confirm-shipment-rate-part', function (e) {
+    let $btn = $(e.target);
+ 
+    if ($btn.hasClass('go-to-next')) {
+      cartPage.handleNextBtnClick(this, e);
+    } else if ($btn.hasClass('go-to-prev')) {
+      cartPage.handlePrevClick(this, e);
+    } else if ($btn.hasClass('go-to-submit')) {
+      cartPage.formSubmitClick(this, e);
+    }
+  });
+
+};
+
+cartPage.handleNextBtnClick = function (el, e) {
+  let $this = $(el);
+  let id = $this.next().attr('id');
+  let ind_selector = 'li[for="' + id + '"]';
+  let $ind = $(ind_selector);
+  // hide current section
+  $ind.hide();
+  $this.hide();
+  // show next section
+  $this.next().show();
+};
+
+cartPage.handlePrevClick = function (el, e) {
+  // hide current section
+  // show previous section
+};
+
+cartPage.formSubmitClick = function () {
+  // submit the cart confirmation form
+};
+
+
+
 //========================================================
 cartPage.init = function () {
+  cartPage.formClickEventListener();
   cartPage.newNonce = cartObject.nonce;
   console.log('This is the cart page');
   cartPage.accountPart = $('#cart-confirm-account-part').show(); // TODO: change to how
