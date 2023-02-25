@@ -1,7 +1,7 @@
 <section id="cart-confirm-shipment-address-part" class="ms-3 my-5">
     <h2 class="lead"><?php esc_html_e('Shipment Address Form', 'deamadre'); ?></h2>
 
-    <form class="row g-3" id="cart-confirm-shipment-form" action="POST">
+    <fieldset id="cart-page__shipping-form" class="row g-3" form="cart-confirm-checkout" action="POST">
         <div class="col-md-6">
             <label for="cart-page__shipping-first-name" class="form-label"><?php esc_html_e('First Name', 'deamadre'); ?></label>
             <input type="text" name="shipping_first_name" class="form-control" id="cart-page__shipping-first-name">
@@ -25,29 +25,29 @@
         <div class="col-md-6">
             <label for="cart-page__shipping_country" class="form-label"><?php esc_html_e('Country', 'deamadre'); ?></label>
             <select id="cart-page__shipping_country" name="shipping_country" class="form-select">
-                <option selected><?php  esc_html_e('Select  your country'); ?></option>
+                <option selected><?php esc_html_e('Select  your country'); ?></option>
                 <option>...</option>
             </select>
         </div>
         <div class="col-md-6">
-            <label for="cart-page__shipping-state" class="form-label"><?php esc_html_e('State/Province', 'deamadre');?></label>
+            <label for="cart-page__shipping-state" class="form-label"><?php esc_html_e('State/Province', 'deamadre'); ?></label>
             <input type="text" list="cart-page__state-datalist" id="cart-page__shipping-state" name="shipping_state" class="form-control">
-               
+
         </div>
         <div class="col-md-4">
-            <label for="cart-page__shipping_city" class="form-label"><?php esc_html_e('City', 'deamadre');?></label>
+            <label for="cart-page__shipping_city" class="form-label"><?php esc_html_e('City', 'deamadre'); ?></label>
             <input type="text" name="shipping_city" class="form-control" id="cart-page__shipping-city">
         </div>
         <div class="col-md-4">
-            <label for="cart-page__shipping_postcode" class="form-label"><?php esc_html_e('Postcode', 'deamadre');?></label>
+            <label for="cart-page__shipping_postcode" class="form-label"><?php esc_html_e('Postcode', 'deamadre'); ?></label>
             <input type="text" name="shipping_postcode" class="form-control" id="cart-page__shipping-postcode">
         </div>
 
-    </form>
+    </fieldset>
 
     <div class="row my-5">
         <div class="col">
-            <button id="cart-page__shipment-form-submit-btn" class="btn btn-outline-secondary contact-btn rounded-pill fw-bold"><?php esc_html_e('Save Address', 'deamadre') ?></button>
+            <button id="cart-page__shipment-form-submit-btn" class="btn btn-outline-secondary contact-btn rounded-pill fw-bold go-to-next"><?php esc_html_e('Next', 'deamadre') ?></button>
         </div>
     </div>
 </section>

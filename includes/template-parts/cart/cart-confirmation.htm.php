@@ -2,6 +2,7 @@
 
 <?php get_template_part('includes/template-parts/cart/cart-confirm-account-part.htm');?>
 
+<form class="row g-3" id="cart-confirm-checkout" action="POST"></form>
 <?php get_template_part('includes/template-parts/cart/cart-confirm-shipment.htm');?>
 
 <?php get_template_part('includes/template-parts/cart/cart-confirm-select-shipment-rate.htm'); ?>

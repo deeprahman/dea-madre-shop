@@ -10,7 +10,7 @@ if ('undefined' === typeof $) {
 let sentData = Object.create(null);
 const cartPage = Object.create(null);
 
-cartPage.newNonce = cartObject.nonce;
+
 
 cartPage.accountPart = $('#cart-confirm-account-part');
 cartPage.shipmentAddressPart = $('#cart-confirm-shipment-address-part');
@@ -95,7 +95,7 @@ function processSuccess(messageObj) {
 
 function showShipmentAddress(data) {
 
-  cartPage.FH = new FH($, cartPage.shipmentAddressPart.find('form'));
+  cartPage.FH = new FH($, cartPage.shipmentAddressPart.find('fieldset'));
 
   fetchShipmentFormData(data);
   cartPage.shipmentAddressPart.show();
@@ -163,7 +163,7 @@ function fetchStatesForACountry(country_code) {
 
 //========================================================
 cartPage.init = function () {
-
+  cartPage.newNonce = cartObject.nonce;
   console.log('This is the cart page');
   cartPage.accountPart = $('#cart-confirm-account-part').show(); // TODO: change to how
   cartPage.shipmentAddressPart.hide(); // TODO: change to hide 
