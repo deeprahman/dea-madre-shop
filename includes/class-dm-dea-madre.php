@@ -24,7 +24,7 @@ final class DM_Dea_Madre
 
     private function checkEnvironment() // requires WordPress 5.5
     {
-        if ('production' === wp_get_environment_type() && 'https' !== $_SERVER['REQUEST_SCHEMA']) {
+        if ('production' === wp_get_environment_type() && 'https' !== $_SERVER['REQUEST_SCHEME']) {
             return new WP_Error(500, 'SSL is not active');
         }
     }
