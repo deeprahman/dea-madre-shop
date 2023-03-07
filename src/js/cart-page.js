@@ -111,7 +111,8 @@ function fetchShipmentFormData(data) {
   sentData = {
     action: 'dm_cart_confirmation',
     nonce: data.newNonce,
-    cart_action: 'shipping-form'
+    cart_action: 'shipping-form',
+    
   };
 
   $.ajax({
@@ -169,7 +170,7 @@ function fetchStatesForACountry(country_code) {
 cartPage.formClickEventListener = function () {
   $(document).on('click', '#cart-confirm-shipment-address-part, #cart-confirm-billing-address-part, #cart-confirm-shipment-rate-part', function (e) {
     let $btn = $(e.target);
- 
+
     if ($btn.hasClass('go-to-next')) {
       cartPage.handleNextBtnClick(this, e);
     } else if ($btn.hasClass('go-to-prev')) {
@@ -194,8 +195,17 @@ cartPage.handleNextBtnClick = function (el, e) {
 };
 
 cartPage.handlePrevClick = function (el, e) {
+  debugger;
+  let $this = $(el);
+  let id = $this.prev().attr('id');
+  let ind_selector = 'li[for="' + id + '"]';
+  let $ind = $(ind_selector);
   // hide current section
+  $ind.hide();
+  $this.hide();
   // show previous section
+  $this.prev().show();
+
 };
 
 cartPage.formSubmitClick = function () {

@@ -43,7 +43,10 @@
         </div>
 
     </fieldset>
-        <div class="row my-5">
+    <div class="row my-5">
+        <div class="col">
+            <button id="cart-page__shipment-form-submit-btn" class="btn btn-outline-secondary contact-btn rounded-pill fw-bold go-to-prev"><?php esc_html_e('Previous', 'deamadre') ?></button>
+        </div>
         <div class="col">
             <button id="cart-page__shipment-form-submit-btn" class="btn btn-outline-secondary contact-btn rounded-pill fw-bold go-to-submit"><?php esc_html_e('Submit', 'deamadre') ?></button>
         </div>

@@ -70,6 +70,9 @@ if (!class_exists('DM_Cart_Page')) :
                 case 'shipping-method':
                     $this->shippingMethods($result);
                     break;
+                case 'save-shipping-form':
+                    $this->saveShippingAddress();
+                    break;
                 case 'billing-form':
                     $this->billingAddressForm($result);
                     break;
@@ -115,9 +118,17 @@ if (!class_exists('DM_Cart_Page')) :
             $result['did'] = 'shipment-address-data-fetching';
             $result['address_data'] = $this->getFormData('shipping');
 
-            // TODO: code for handling requests for displaying the shipping form
+        }
 
-            // TODO: Code for handling request for saving the shipping form
+        private function saveShippingAddress()
+        {
+            $uid = get_current_user_id();
+            DM_Utilities::errorHandler($as = new DM_Address_Saver($uid));
+            if ($as->save_address()) {
+                wc_add_notice(__('Shipment Address Saved'), 'deamadre');
+                return;
+            }
+            wc_add_notice(__('Shipment Address Not Saved'), 'deamadre');
         }
 
         private function getFormData($type): array
@@ -158,7 +169,7 @@ if (!class_exists('DM_Cart_Page')) :
                 );
                 exit;
             }
-         
+
             $result['states'] = WC()->countries->get_states(
                 sanitize_text_field($_REQUEST['countryCode'])
             );
