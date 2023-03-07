@@ -24,6 +24,9 @@ $removed_hook_list = [
     'woocommerce_proceed_to_checkout' => [
         [10 => 'wc_get_pay_buttons'],
         [20 => 'woocommerce_button_proceed_to_checkout']
+    ],
+    'woocommerce_cart_collaterals' => [
+        // [10 => 'woocommerce_cart_totals']
     ]
 
 

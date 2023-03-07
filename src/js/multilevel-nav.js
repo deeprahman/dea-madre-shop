@@ -1,11 +1,11 @@
 // export const app =
 //   () => `Sensible webpack 5 boilerplate using Babel and PostCSS with a hot dev server 
 //   and an optimized production build.`
-
+console.log("Multilevel Nov menu");
 document.addEventListener("DOMContentLoaded", function(){
   // make it as accordion for smaller screens
   if (window.innerWidth < 992) {
-  
+    
     // close all inner dropdowns when parent is closed
     document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
       everydropdown.addEventListener('hidden.bs.dropdown', function () {
