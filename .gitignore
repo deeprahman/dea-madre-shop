@@ -35,7 +35,7 @@ Temporary Items
 .apdisk
 
 .vscode
-dist/
+
 templates/
 Wordpress-6
 index.html
