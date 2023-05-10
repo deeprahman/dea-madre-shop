@@ -27,9 +27,9 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">Products</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">SubMenu</a></li>
-                    <li><a href="#" class="dropdown-item">SubMenu</a></li>
-                    <li><a href="#" class="dropdown-item">SubMenu</a></li>
+                    <li><a href="#" class="dropdown-item">Dummy SubMenu</a></li>
+                    <li><a href="#" class="dropdown-item">Dummy SubMenu</a></li>
+                    <li><a href="#" class="dropdown-item">Dummy SubMenu</a></li>
                 </ul>
             </li>
             <!-- Shop -->
@@ -40,17 +40,17 @@
                     <li> <a class="dropdown-item" href="<?php echo get_permalink(get_page_by_title( 'Shop' ));?>">Our Shop</a></li>
                     <!-- WIne -->
                     <li class="dropend">
-                        <a class="dropdown-item dropdown-toggle" href="#"> Wine</a>
+                        <a class="dropdown-item dropdown-toggle" href="#">Dummy Wine lik</a>
                         <!-- Sub-Submenu -->
                         <ul class="submenu dropdown-menu">
-                            <li><a class="dropdown-item" href="#"> sub-submenu </a></li>
-                            <li><a class="dropdown-item" href="#"> Sub-submenu </a></li>
+                            <li><a class="dropdown-item" href="#">Dummy sub-submenu </a></li>
+                            <li><a class="dropdown-item" href="#">Dummy Sub-submenu </a></li>
                         </ul>
                     </li>
                     <!-- Beverage -->
-                    <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                    <li> <a class="dropdown-item" href="#">Dummy Submenu</a></li>
                     <!-- Cafeteria -->
-                    <li> <a class="dropdown-item" href="#"> Submenu</a></li>
+                    <li> <a class="dropdown-item" href="#">Dummy Submenu</a></li>
                 </ul>
             </li>
             <!-- Contacts -->
